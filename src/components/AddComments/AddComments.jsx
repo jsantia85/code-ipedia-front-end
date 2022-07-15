@@ -3,30 +3,44 @@ import './AddComments.css'
 
 
 function AddComment (props) {
-  const [validForm, setValidForm] = useState(false)
-  const formElement = useRef()
-
   const [formData, setFormData]= useState({
     comments: '',
     author: '',
   })
-
-  useEffect(() => {
-		formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
-	}, [formData])
-
+  
+  const [validForm, setValidForm] = useState(false)
+  const formElement = useRef()
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
-
+  
   const handleSubmit = evt => {
-		evt.preventDefault()
-	}
+    evt.preventDefault()
+    props.handleAddComment(formData)
+  }
+  console.log('it wokr')
+  
+  useEffect(() => {
+    formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
+	}, [formData])
+  
+
 
   return (
     <>
     <h1>Add Comment</h1>
     <form autoComplete='off' ref={formElement} onSubmit={handleSubmit}>
+    <div>
+      <label>User: </label>
+    <input 
+						type="text"
+						id="author-input"
+						name="author"
+						required
+					/>
+
+      </div>
+      
       <div>
       <textarea 
         type="text"
@@ -37,13 +51,12 @@ function AddComment (props) {
         cols="33"
       >
       </textarea>
-
-
       </div>
       <div>
         <button
         type="submit"
-	      className="btn btn-primary btn-fluid"> 
+	      className="btn btn-primary btn-fluid"
+        disabled={!validForm}> 
         Add Comment
 		    </button>
       </div>
