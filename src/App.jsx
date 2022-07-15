@@ -8,6 +8,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import AddPost from './pages/AddPost/AddPost'
+import CodeList from './pages/CodeList/CodeList'
 import * as authService from './services/authService'
 
 const App = () => {
@@ -54,6 +55,7 @@ const App = () => {
               }
               />
           <Route path="/addPost" element={<AddPost />}/>
+          <Route path="/codeList" element={<CodeList />}/>
       </Routes>
       </main>
     </div>
