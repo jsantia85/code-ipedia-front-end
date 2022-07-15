@@ -43,20 +43,17 @@ function AddPost(props) {
 					<label htmlFor="category-input" className="form-label">
 						Category (required)
 					</label>
-          <select name="airline" id="airline-select">
+          <select 
+            name="category" 
+            id="category-select"
+            type="text"
+						className="form-control"
+            value={formData.category}
+            onChange={handleChange}>
             <option value="javascript">JavaScript</option>
             <option value="css">CSS</option>
             <option value="html">HTML</option>
           </select>
-					<input 
-						type="text"
-						className="form-control"
-						id="category-input"
-						name="category"
-            value={formData.category}
-            onChange={handleChange}
-						required
-					/>
 				</div>
 				<div className="form-group mb-4">
 					<label htmlFor="code-input" className="form-label">
