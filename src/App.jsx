@@ -14,7 +14,12 @@ import * as authService from './services/authService'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [posts, setPosts] = useState([])
   const navigate = useNavigate()
+
+  const handleAddPost = newPostData => {
+    setPosts([...posts, newPostData])
+  }
 
   const handleLogout = () => {
     authService.logout()
@@ -59,7 +64,7 @@ const App = () => {
           path="/index"
           element={user ? <Index /> : <Navigate to="/login" />}
           />
-          <Route path="/addPost" element={<AddPost />}/>
+          <Route path="/addPost" element={<AddPost handleAddPost={handleAddPost} />}/>
           <Route path="/codeList" element={<CodeList />}/>
       </Routes>
       </main>
