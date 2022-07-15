@@ -11,17 +11,24 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import AddPost from './pages/AddPost/AddPost'
 import * as postService from './services/postService'
 import CodeList from './pages/CodeList/CodeList'
+import AddComment from './components/AddComments/AddComments'
 import * as authService from './services/authService'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [posts, setPosts] = useState([])
+  const[comments, setComments] = useState([])
   const navigate = useNavigate()
 
   const handleAddPost = async newPostData => {
     const newPost = await postService.create(newPostData)
     setPosts([...posts, newPost])
   }
+
+  const handleAddComment = newCommentData => {
+    setComments([...comments, newCommentData])
+  }
+
 
   const handleLogout = () => {
     authService.logout()
@@ -68,6 +75,7 @@ const App = () => {
           />
           <Route path="/addPost" element={<AddPost handleAddPost={handleAddPost} />}/>
           <Route path="/codeList" element={<CodeList />}/>
+          <Route path='/addComment' element={<AddComment handleAddComment={handleAddComment}/>}/>
       </Routes>
       </main>
     </div>
