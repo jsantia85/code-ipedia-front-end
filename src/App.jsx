@@ -9,6 +9,7 @@ import Profiles from './pages/Profiles/Profiles'
 import Index from './pages/Index/Index'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import AddPost from './pages/AddPost/AddPost'
+import * as postService from './services/postService'
 import CodeList from './pages/CodeList/CodeList'
 import AddComment from './components/AddComments/AddComments'
 import * as authService from './services/authService'
@@ -18,8 +19,9 @@ const App = () => {
   const [posts, setPosts] = useState([])
   const navigate = useNavigate()
 
-  const handleAddPost = newPostData => {
-    setPosts([...posts, newPostData])
+  const handleAddPost = async newPostData => {
+    const newPost = await postService.create(newPostData)
+    setPosts([...posts, newPost])
   }
 
   const handleLogout = () => {
