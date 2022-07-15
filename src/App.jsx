@@ -9,6 +9,7 @@ import Profiles from './pages/Profiles/Profiles'
 import Index from './pages/Index/Index'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import AddPost from './pages/AddPost/AddPost'
+import AddComment from './components/AddComments/AddComments'
 import * as authService from './services/authService'
 
 const App = () => {
@@ -59,6 +60,7 @@ const App = () => {
           element={user ? <Index /> : <Navigate to="/login" />}
           />
           <Route path="/addPost" element={<AddPost />}/>
+          <Route path='/addComment' element={<AddComment /> }/>
       </Routes>
       </main>
     </div>
