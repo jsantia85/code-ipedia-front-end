@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react"
 
 function AddPost(props) {
     const formElement = useRef()
+    console.log(formElement)
     const [validForm, setValidForm] = useState(false)
     const [formData, setFormData] = useState({
       title: '',
@@ -19,6 +20,7 @@ function AddPost(props) {
 
   const handleSubmit = evt => {
     evt.preventDefault()
+    props.handleAddPost(formData)
   }
   
 	return (
@@ -36,6 +38,7 @@ function AddPost(props) {
 						name="title"
             value={formData.title}
             onChange={handleChange}
+            placeholder="Breifly Describes Code"
 						required
 					/>
 				</div>
@@ -43,17 +46,16 @@ function AddPost(props) {
 					<label htmlFor="category-input" className="form-label">
 						Category (required)
 					</label>
-          <select 
-            name="category" 
-            id="category-select"
-            type="text"
+					<input 
+						type="text"
 						className="form-control"
+						id="category-input"
+						name="category"
             value={formData.category}
-            onChange={handleChange}>
-            <option value="javascript">JavaScript</option>
-            <option value="css">CSS</option>
-            <option value="html">HTML</option>
-          </select>
+            onChange={handleChange}
+            placeholder="ex. React, JavaScript"
+						required
+					/>
 				</div>
 				<div className="form-group mb-4">
 					<label htmlFor="code-input" className="form-label">
@@ -66,6 +68,7 @@ function AddPost(props) {
 						name="code"
             value={formData.code}
             onChange={handleChange}
+            placeholder="console.log('Sanity')"
             required
 					/>
 				</div>
@@ -73,6 +76,7 @@ function AddPost(props) {
 					<button
 						type="submit"
 						className="btn btn-primary btn-fluid"
+            disabled={!validForm}
 					>
 						Add Post
 					</button>

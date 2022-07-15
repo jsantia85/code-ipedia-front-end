@@ -9,12 +9,18 @@ import Profiles from './pages/Profiles/Profiles'
 import Index from './pages/Index/Index'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import AddPost from './pages/AddPost/AddPost'
+import CodeList from './pages/CodeList/CodeList'
 import AddComment from './components/AddComments/AddComments'
 import * as authService from './services/authService'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [posts, setPosts] = useState([])
   const navigate = useNavigate()
+
+  const handleAddPost = newPostData => {
+    setPosts([...posts, newPostData])
+  }
 
   const handleLogout = () => {
     authService.logout()
@@ -59,8 +65,9 @@ const App = () => {
           path="/index"
           element={user ? <Index /> : <Navigate to="/login" />}
           />
-          <Route path="/addPost" element={<AddPost />}/>
-          <Route path='/addComment' element={<AddComment /> }/>
+          <Route path="/addPost" element={<AddPost handleAddPost={handleAddPost} />}/>
+          <Route path="/codeList" element={<CodeList />}/>
+          <Route path='/addComment' element={<AddComment />} />
       </Routes>
       </main>
     </div>

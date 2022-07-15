@@ -1,8 +1,8 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './AddComments.css'
 
 
-function AddComment(props) {
+function AddComment (props) {
   const [validForm, setValidForm] = useState(false)
   const formElement = useRef()
 
@@ -11,25 +11,34 @@ function AddComment(props) {
     author: '',
   })
 
+  useEffect(() => {
+		formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
+	}, [formData])
+
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
+  const handleSubmit = evt => {
+		evt.preventDefault()
+	}
+
   return (
     <>
     <h1>Add Comment</h1>
-    <form>
+    <form autoComplete='off' ref={formElement} onSubmit={handleSubmit}>
       <div>
       <textarea 
-      id="comment-text"
-      name="comments"
-      onChange={handleChange}
-      disabled={!validForm}
-      rows="5"
-      cols="33"
+        type="text"
+        id="comments"
+        name="comments"
+        onChange={handleChange}
+        rows="5"
+        cols="33"
       >
-      Add your comment here
       </textarea>
+
+
       </div>
       <div>
         <button
