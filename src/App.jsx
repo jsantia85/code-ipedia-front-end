@@ -6,6 +6,7 @@ import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
+import Index from './pages/Index/Index'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import AddPost from './pages/AddPost/AddPost'
 import * as authService from './services/authService'
@@ -52,7 +53,11 @@ const App = () => {
                 <Navigate to="/login" />
                 )
               }
-              />
+        />
+        <Route
+          path="/index"
+          element={user ? <Index /> : <Navigate to="/login" />}
+          />
           <Route path="/addPost" element={<AddPost />}/>
       </Routes>
       </main>
