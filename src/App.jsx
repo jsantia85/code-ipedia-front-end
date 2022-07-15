@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
@@ -28,6 +28,14 @@ const App = () => {
     setUser(null)
     navigate('/')
   }
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const postData = await postService.getAll()
+      setPosts(postData)
+    }
+    fetchPosts()
+  }, [])
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
@@ -64,7 +72,7 @@ const App = () => {
         />
         <Route
           path="/index"
-          element={user ? <Index /> : <Navigate to="/login" />}
+          element={user ? <Index posts={posts}/> : <Navigate to="/login" />}
           />
           <Route path="/addPost" element={<AddPost handleAddPost={handleAddPost} />}/>
           <Route path="/codeList" element={<CodeList />}/>

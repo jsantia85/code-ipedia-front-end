@@ -1,5 +1,5 @@
 import * as tokenService from './tokenService'
-const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}`
+const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/posts`
 
 async function create(post) {
   const res = await fetch(BASE_URL, {
@@ -13,6 +13,12 @@ async function create(post) {
 	return res.json()
 }
 
+async function getAll() {
+  const res = await fetch(BASE_URL)
+  return res.json()
+}
+
 export {
-	create
+	create,
+  getAll
 }
