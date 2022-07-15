@@ -3,18 +3,18 @@ import CodeEditor from "../../components/CodeEditor/CodeEditor"
 import styles from "./AddPost.module.css"
 
 function AddPost(props) {
-    const formElement = useRef()
-    console.log(formElement)
-    const [validForm, setValidForm] = useState(false)
-    const [formData, setFormData] = useState({
-      title: '',
-      category: '',
-      code: ''
-    })
-
+  const [formData, setFormData] = useState({
+    title: '',
+    category: '',
+    code: ''
+  })
+  const [validForm, setValidForm] = useState(false)
+  
   const handleChange = evt => {
-		setFormData({ ...formData, [evt.target.name]: evt.target.value })
+    setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
+
+  const formElement = useRef()
 
   useEffect(() => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
