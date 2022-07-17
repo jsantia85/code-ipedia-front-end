@@ -18,7 +18,19 @@ async function getAll() {
   return res.json()
 }
 
+async function addPhoto(photoData, postId) {
+  const res = await fetch(`${BASE_URL}/${postId}/add-photo`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: photoData
+  })
+	return await res.json()
+}
+
 export {
 	create,
-  getAll
+  getAll,
+  addPhoto,
 }

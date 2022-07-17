@@ -12,7 +12,6 @@ const CodeEditor = (props) => {
   );
   return(
     <div>
-
     <Editor
       value={code}
       onValueChange={code => setCode(code)}
