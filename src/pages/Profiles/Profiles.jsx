@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
 import styles from "./Profiles.module.css"
 
@@ -20,14 +21,14 @@ const Profiles = () => {
       {profiles.length ? 
         <>
           {profiles.map(profile =>
-            <a className={styles.text} href={profile._id}>
+            <Link to={profile._id} className={styles.text}>
               <div className={styles.card}>
                 <img src={profile.photo} alt="" />
                 <div className={styles.cardBody}>
                   <h3 className={styles.cardTitle}>{profile.name}</h3>
                 </div>
               </div>
-            </a>
+            </Link>
           )}
         </>
       :
