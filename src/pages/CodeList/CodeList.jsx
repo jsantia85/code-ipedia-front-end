@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import DisplayCodes from './DisplayCodes'
-import { codes } from '../Index/data'
+// import { codes } from '../Index/data'
 
 const CodeList = (props) => {
 
@@ -10,7 +10,7 @@ const CodeList = (props) => {
   return (
     <div className="code-list">
       <section>
-        <DisplayCodes codes={codes} codeCategory={codeCategory} />
+        <DisplayCodes codeCategory={codeCategory} />
       </section>
 
     </div>

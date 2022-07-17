@@ -9,14 +9,11 @@ import Profiles from './pages/Profiles/Profiles'
 import Index from './pages/Index/Index'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import AddPost from './pages/AddPost/AddPost'
-<<<<<<< HEAD
-import DisplayCodes from './pages/CodeList/DisplayCodes'
-=======
 import * as postService from './services/postService'
 import CodeList from './pages/CodeList/CodeList'
 import AddComment from './components/AddComments/AddComments'
->>>>>>> main
 import * as authService from './services/authService'
+import DisplayCodes from './pages/CodeList/DisplayCodes'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -85,14 +82,11 @@ const App = () => {
           path="/index"
           element={user ? <Index posts={posts}/> : <Navigate to="/login" />}
           />
-<<<<<<< HEAD
           <Route path="/addPost" element={<AddPost />}/>
           <Route path="/displayCodes" element={<DisplayCodes />}/>
-=======
           <Route path="/addPost" element={<AddPost handleAddPost={handleAddPost} />}/>
           <Route path="/codeList" element={<CodeList />}/>
           <Route path='/addComment' element={<AddComment handleAddComment={handleAddComment}/>}/>
->>>>>>> main
       </Routes>
       </main>
     </div>
