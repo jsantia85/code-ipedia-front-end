@@ -8,7 +8,6 @@ const CodeEditor = (props) => {
       theme={'tomorrow'}
       lineNumber={true}
       readOnly={false}
-     
     />
   )}
 
