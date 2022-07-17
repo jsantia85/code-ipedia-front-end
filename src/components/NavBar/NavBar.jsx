@@ -6,13 +6,13 @@ const NavBar = ({ user, handleLogout }) => {
     <header className="App-header">
       {user ?
         <nav>
-            Welcome, {user.name}
             <Link to="/profiles">Profiles</Link>
             <Link to="/index">Index</Link>
             <Link to="/addPost">Add Post</Link>
             <Link to="/displayCodes">Code</Link>
             <Link to="" onClick={handleLogout}>LOG OUT</Link>
             <Link to="/changePassword">Change Password</Link>
+            <Link to='/addComment'>Add Comment</Link>
         </nav>
       :
         <nav>
