@@ -1,10 +1,20 @@
-import CodeCard from "../components/CodeCard/CodeCard";
-import styles from "./ProfilePage.module.css";
+import { useState, useEffect } from 'react'
+import * as profileService from '../services/profileService'
 
-const ProfilePage = (props) => {
+const ProfilePage = () => {
+  const [profiles, setProfiles] = useState([])
+
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      const profileData = await profileService.getAllProfiles()
+      setProfiles(profileData)
+    }
+    fetchProfiles()
+  }, [])
+
   return (
     <>
-      <h1>ProfilePage Component</h1>
+      <h1>Welcome to </h1>
       
     </>
   );
