@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
+import ProfilePage from '../../ProfilePage/ProfilePage'
 import * as profileService from '../../services/profileService'
 import styles from "./Profiles.module.css"
 
@@ -21,7 +22,7 @@ const Profiles = () => {
       {profiles.length ? 
         <>
           {profiles.map(profile =>
-            <Link to={profile._id} className={styles.text}>
+            <Link to="/{profile._id}" className={styles.text} key={profile._id}>
               <div className={styles.card}>
                 <img src={profile.photo} alt="" />
                 <div className={styles.cardBody}>
