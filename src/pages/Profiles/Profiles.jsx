@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, Route, Routes } from 'react-router-dom'
-import ProfilePage from '../../ProfilePage/ProfilePage'
+import { Link } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
 import styles from "./Profiles.module.css"
 
