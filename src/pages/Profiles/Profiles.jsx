@@ -21,7 +21,7 @@ const Profiles = () => {
         <>
           {profiles.map(profile =>
             <a className={styles.text} href={profile._id}>
-              <div className={styles.container}>
+              <div className={styles.card}>
                 <div className={styles.cardBody}>
                   <h3 className={styles.cardTitle}>{profile.name}</h3>
                 </div>
