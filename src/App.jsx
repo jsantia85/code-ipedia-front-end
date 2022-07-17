@@ -15,6 +15,7 @@ import * as postService from './services/postService'
 import CodeList from './pages/CodeList/CodeList'
 import AddComment from './components/AddComments/AddComments'
 import * as authService from './services/authService'
+import ProfilePage from './ProfilePage/ProfilePage'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -102,6 +103,10 @@ const App = () => {
           <Route path="/codeList" element={<CodeList />}/>
           <Route path='/edit' element={<EditPost handleUpdatePost={handleUpdatePost}/>}/>
           <Route path='/addComment' element={<AddComment handleAddComment={handleAddComment}/>}/>
+          <Route
+          path="/:profileId"
+          element={user ? <ProfilePage /> : <Navigate to="/login" />}
+          />
       </Routes>
       </main>
     </div>
