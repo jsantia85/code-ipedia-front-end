@@ -10,11 +10,11 @@ import Profiles from './pages/Profiles/Profiles'
 import Index from './pages/Index/Index'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import AddPost from './pages/AddPost/AddPost'
+import EditPost from './pages/EditPost/EditPost'
 import * as postService from './services/postService'
 import CodeList from './pages/CodeList/CodeList'
 import AddComment from './components/AddComments/AddComments'
 import * as authService from './services/authService'
-import ProfilePage from './ProfilePage/ProfilePage'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -60,6 +60,11 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+  const handleUpdatePost = async (postData) => {
+    const updatedPost = await postService.update(postData)
+    setPosts([...posts.filter(post => post._id !== postData._id), updatedPost])
+  }
+
   return (
     <>
     <div className='App'>
@@ -95,11 +100,8 @@ const App = () => {
           />
           <Route path="/addPost" element={<AddPost handleAddPost={handleAddPost} />}/>
           <Route path="/codeList" element={<CodeList />}/>
+          <Route path='/edit' element={<EditPost handleUpdatePost={handleUpdatePost}/>}/>
           <Route path='/addComment' element={<AddComment handleAddComment={handleAddComment}/>}/>
-          <Route
-          path="/:profileId"
-          element={user ? <ProfilePage /> : <Navigate to="/login" />}
-          />
       </Routes>
       </main>
     </div>
