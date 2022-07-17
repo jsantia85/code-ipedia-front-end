@@ -2,6 +2,7 @@
   min-height: 100vh;
   display: grid;
   grid-template-rows: 7vmin auto;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .App-header {
