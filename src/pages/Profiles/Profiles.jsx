@@ -15,14 +15,16 @@ const Profiles = () => {
 
   return (
     <>
-      <h1>Hello. This is a list of all the profiles.</h1>
+      <h1>List of A-Code-Lytes</h1>
       <div className={styles.container}>
       {profiles.length ? 
         <>
           {profiles.map(profile =>
-            <a href={profile._id}>
+            <a className={styles.text} href={profile._id}>
               <div className={styles.container}>
-                if ()
+                <div className={styles.cardBody}>
+                  <h3 className={styles.cardTitle}>{profile.name}</h3>
+                </div>
               </div>
             </a>
           )}

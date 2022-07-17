@@ -12,7 +12,7 @@
   max-width: 1600px;
 }
 
-.text-decoration-none {
+.text {
   text-decoration: none;
 }
 
@@ -30,13 +30,13 @@
   height: 96px;
 }
 
-.card-body {
+.cardBody {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.card-title {
+.cardTitle {
   font-size: 24px;
   margin: 0 10px;
 }
