@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react"
 import CodeEditor from "../../components/CodeEditor/CodeEditor"
-import styles from "./AddPost.module.css"
 
 function AddPost(props) {
+	const [code, setCode] = useState('')
   const [formData, setFormData] = useState({
     title: '',
     category: '',
@@ -73,19 +73,9 @@ function AddPost(props) {
             placeholder="console.log('Sanity')"
             required
 					/> */}
-					<CodeEditor 
-					className={styles.prismeditor}
-					id="code-input"
-					onChange={handleChange}
-					language={props.category}
-					value={formData.code}
-					name="code"
-					type='text'
-					required
-					changeCode={code => {
-						this.code = code
-						console.log(code)
-					}}
+					<CodeEditor
+					code={code}
+					onValueChange={code => setCode(code)}
 					/>
 				</div>
 				<div className="d-grid">
