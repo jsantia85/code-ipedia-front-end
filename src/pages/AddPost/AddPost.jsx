@@ -83,9 +83,9 @@ function AddPost(props) {
             required
 					/> */}
 					<Editor
-						value={code}
+						value={formData.code}
 						name="code"
-						code={formData.code}
+						code={code}
 						onValueChange={code => setCode(code)}
 						onChange={handleChange}
 						highlight={code => highlight(code, languages.js)}
