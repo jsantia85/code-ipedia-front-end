@@ -1,16 +1,20 @@
+import { useState } from 'react'
 
+import DisplayCodes from './DisplayCodes'
+// import { codes } from '../Index/data'
 
 const CodeList = (props) => {
 
+  const [codeCategory, setCodeCategory] = useState('Code')
+
   return (
-    <>
-      <h1>Code List</h1>
-      <div>
-        
-        
-      </div>
-    </>
-  );
+    <div className="code-list">
+      <section>
+        <DisplayCodes codeCategory={codeCategory} />
+      </section>
+
+    </div>
+  )
 }
 
-export default CodeList;
+export default CodeList
