@@ -27,7 +27,9 @@ const CodeCard = (props) => {
             >
               Edit
             </Link>
-          
+            <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePost(props.post._id)}>
+              Delete
+            </button>
           </div>
         }
         </div>
