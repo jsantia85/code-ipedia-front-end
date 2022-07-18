@@ -20,6 +20,7 @@ const Index = (props) => {
             categories={post.categories}
             user={props.user}
             code={props.code}
+            handleDeletePost={props.handleDeletePost}
             /> }
         </Link>
         )}
