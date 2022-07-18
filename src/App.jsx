@@ -138,7 +138,7 @@ const App = () => {
             path="/:profileId"
             element={
               user ? 
-                <ProfilePage profiles={profiles} posts={posts}/> : 
+                <ProfilePage profiles={profiles} posts={posts} user={user}/> : 
                 <Navigate to="/login" />}/>
           <Route 
             path="/post"
