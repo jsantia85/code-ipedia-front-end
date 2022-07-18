@@ -21,7 +21,7 @@ const Profiles = (props) => {
       {profiles.length ? 
         <>
           {profiles.map(profile =>
-            <Link to="/{profile._id}" className={styles.text} key={profile._id} profile={{profile}} posts={props.posts}>
+            <Link to="/{profile._id}" className={styles.text} key={profile._id} state={{profile: profile, posts: props.posts}}>
               <div className={styles.card}>
                 <img src={profile.photo} alt="" />
                 <div className={styles.cardBody}>
