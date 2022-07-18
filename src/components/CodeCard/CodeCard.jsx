@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const CodeCard = (props) => {
+  console.log(props.post.author._id)
   return(
     <div className="card">
       <div className="card-header">
@@ -16,7 +17,7 @@ const CodeCard = (props) => {
         </div>
         <div className="card-text">
           <p>{props.author}</p>
-        {props.user?.profile === props.author?._id &&
+        {props.user?.profile === props.post.author?._id &&
           <div className="card-footer">
             <Link
               state={props.post}

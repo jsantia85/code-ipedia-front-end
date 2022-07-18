@@ -6,7 +6,6 @@ function EditPost(props) {
   const formElement = useRef()
 	const location = useLocation()
 
-  console.log(location)
   
 
 	const [code, setCode] = useState('')
