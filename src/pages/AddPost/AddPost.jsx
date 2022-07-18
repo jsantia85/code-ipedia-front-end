@@ -75,6 +75,7 @@ function AddPost(props) {
 					/> */}
 					<CodeEditor
 					code={code}
+					value={formData.code}
 					onValueChange={code => setCode(code)}
 					/>
 				</div>
