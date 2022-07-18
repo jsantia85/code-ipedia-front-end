@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const CodeCard = (props) => {
   return(
     <div className="card">
@@ -14,6 +16,16 @@ const CodeCard = (props) => {
         </div>
         <div className="card-text">
           <p>{props.author}</p>
+        {props.user?.profile === props.author?._id &&
+          <div className="card-footer">
+            <Link
+              to="/edit"
+              className='btn btn-sm btn-primary'
+            >
+              Edit
+            </Link>
+          </div>
+        }
         </div>
       </div>
     </div>

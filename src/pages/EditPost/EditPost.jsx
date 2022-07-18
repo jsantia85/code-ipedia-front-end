@@ -1,20 +1,18 @@
 import { useState, useRef, useEffect } from "react"
+import { Link, useLocation } from "react-router-dom"
 import CodeEditor from "../../components/CodeEditor/CodeEditor"
 
-function AddPost(props) {
+function EditPost(props) {
 	const [code, setCode] = useState('')
-  const [formData, setFormData] = useState({
-    title: '',
-    category: '',
-    code: ''
-  })
+  const formElement = useRef()
+	const location = useLocation()
+  const [formData, setFormData] = useState(location.state.post)
   const [validForm, setValidForm] = useState(false)
   
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
-  const formElement = useRef()
 
   useEffect(() => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
@@ -22,7 +20,7 @@ function AddPost(props) {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    props.handleAddPost(formData)
+    props.handleUpdatePost(formData)
   }
   
 	return (
@@ -84,12 +82,18 @@ function AddPost(props) {
 						className="btn btn-primary btn-fluid"
             disabled={!validForm}
 					>
-						Add Post
+						Save Post
 					</button>
+          <Link
+						to="/"
+						className="btn btn-danger btn-fluid"
+					>
+						Cancel
+					</Link>
 				</div>
 			</form>
 		</>
 	)
 }
 
-export default AddPost
+export default EditPost

@@ -3,6 +3,7 @@ form{
   height: 1000px;
 }
 
-.prismeditor{
-  height: 500px;
+.btn{
+  background-color: #E5A6A6 !important;
+  color: #E1ECD4 !important;
 }
