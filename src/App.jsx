@@ -112,12 +112,13 @@ const App = () => {
                 <Navigate to="/login" />
                 )
               }/>
-        <Route 
-          path="/index" 
-          element={
-              user ? 
-                <Index posts={posts}/> : 
-                <Navigate to="/login" />}/>
+        
+          <Route
+            path="/index"
+            element={user ? 
+              <Index posts={posts} user={user}/> : 
+              <Navigate to="/login" />}
+          />
           <Route 
             path="/displayCodes" 
             element={<DisplayCodes />}/>
