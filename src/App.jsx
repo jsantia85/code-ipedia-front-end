@@ -141,8 +141,8 @@ const App = () => {
                 <ProfilePage profiles={profiles} posts={posts} user={user}/> : 
                 <Navigate to="/login" />}/>
           <Route 
-            path="/post"
-            element={<PostDetails />}/>
+            path="/index/:postId"
+            element={<PostDetails profiles={profiles} posts={posts} user={user} />}/>
       </Routes>
       </main>
     </div>
