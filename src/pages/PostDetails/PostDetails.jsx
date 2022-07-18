@@ -1,7 +1,8 @@
 // import { Link } from 'react-router-dom'
 import CodeCard from "../../components/CodeCard/CodeCard"
-import {useLocation, useParams} from 'react-router-dom'
+import {useLocation} from 'react-router-dom'
 import AddComment from "../../components/AddComments/AddComments"
+import style from './PostDetails.module.css'
 
 function PostDetails (props) {
   const location = useLocation()
@@ -10,7 +11,7 @@ function PostDetails (props) {
   return (
     <>
     <h1>Post Details</h1>
-    <div>
+    <div className= {style.container}>
       <CodeCard 
         key={post._id}
         post={post}
@@ -18,8 +19,13 @@ function PostDetails (props) {
         author={post.author.name}
         user={props.user}
         />
-        <AddComment />
-    
+      </div>
+      <div>
+        <h5>Say something nice.</h5>
+        <AddComment
+          key={post._id}
+          user={props.user}
+          author={post.author.name} />
       </div>
     </>
   )
