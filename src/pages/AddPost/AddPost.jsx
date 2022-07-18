@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect } from "react"
-import CodeEditor from "../../components/CodeEditor/CodeEditor"
+import Editor from "react-simple-code-editor"
+import { highlight, languages } from "prismjs/components/prism-core";
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/themes/prism-tomorrow.css';
 
 function AddPost(props) {
 	const [code, setCode] = useState('')
@@ -22,7 +26,12 @@ function AddPost(props) {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    props.handleAddPost(formData)
+	const form = {
+		title: formData.title,
+		code: formData.code,
+		category: {category: formData.category}
+	}
+    props.handleAddPost(form)
   }
   
 	return (
@@ -38,9 +47,9 @@ function AddPost(props) {
 						className="form-control"
 						id="title-input"
 						name="title"
-            value={formData.title}
-            onChange={handleChange}
-            placeholder="Breifly Describes Code"
+						value={formData.title}
+						onChange={handleChange}
+						placeholder="Breifly Describes Code"
 						required
 					/>
 				</div>
@@ -73,11 +82,24 @@ function AddPost(props) {
             placeholder="console.log('Sanity')"
             required
 					/> */}
-					<CodeEditor
-					code={code}
-					value={formData.code}
-					onValueChange={code => setCode(code)}
-					/>
+					<Editor
+						value={formData.code}
+						name="code"
+						code={code}
+						onValueChange={code => setCode(code)}
+						onChange={handleChange}
+						highlight={code => highlight(code, languages.js)}
+						padding={10}
+						textareaClassName="code-editor"
+						preClassName="code-editor-pre"
+						style={{
+							fontFamily: '"Fira code", "Fira Mono", monospace',
+							backgroundColor: "#fdfdfd",
+							color: "#333",
+							border: "1px solid #ddd",
+							borderRadius: "4px",
+							fontSize: 16,
+						}}/>
 				</div>
 				<div className="d-grid">
 					<button

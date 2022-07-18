@@ -16,6 +16,7 @@ const CodeCard = (props) => {
           </pre> */}
         </div>
         <div className="card-text">
+          <p>{props.categories}</p>
           <p>{props.author}</p>
         {props.user?.profile === props.post.author?._id &&
           <div className="card-footer">
@@ -26,7 +27,9 @@ const CodeCard = (props) => {
             >
               Edit
             </Link>
-          
+            <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePost(props.post._id)}>
+              Delete
+            </button>
           </div>
         }
         </div>

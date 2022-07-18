@@ -84,6 +84,11 @@ const App = () => {
       navigate('/index')
   }
 
+  const handleDeletePost = async id => {
+    const deletedPost = await postService.deleteOne(id)
+    setPosts(posts.filter(post => post._id !== deletedPost._id))
+  }
+
   return (
     <>
     <div className='App'>
@@ -118,9 +123,10 @@ const App = () => {
           <Route
             path="/index"
             element={user ? 
-              <Index posts={posts} user={user}/> : 
+              <Index posts={posts} user={user} handleDeletePost={handleDeletePost}/> : 
               <Navigate to="/login" />}
           />
+          
           <Route 
             path="/displayCodes" 
             element={<DisplayCodes />}/>
@@ -129,7 +135,7 @@ const App = () => {
             element={<AddPost handleAddPost={handleAddPost} />}/>
           <Route 
             path="/codeList" 
-            element={<CodeList />}/>
+            element={<CodeList posts={posts} />}/>
           <Route 
             path='/edit' 
             element={<EditPost handleUpdatePost={handleUpdatePost}/>}/>
