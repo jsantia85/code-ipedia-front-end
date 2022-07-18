@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
 import styles from "./Profiles.module.css"
 
-const Profiles = () => {
+const Profiles = (props) => {
   const [profiles, setProfiles] = useState([])
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Profiles = () => {
       {profiles.length ? 
         <>
           {profiles.map(profile =>
-            <Link to="/{profile._id}" className={styles.text} key={profile._id}>
+            <Link to="/{profile._id}" className={styles.text} key={profile._id} profile={{profile}} posts={props.posts}>
               <div className={styles.card}>
                 <img src={profile.photo} alt="" />
                 <div className={styles.cardBody}>
