@@ -7,13 +7,14 @@ const Index = (props) => {
       <h1>Posts</h1>
       <div className={styles.container}>
         {props.posts.map(post =>
-        // console.log(post)
           <CodeCard 
             key={post._id}
+            post={post}
             title={post.title}
             author={post.author.name}
             categories={post.categories}
             user={props.user}
+            code={props.code}
           />
         )}
       </div>

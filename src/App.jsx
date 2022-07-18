@@ -15,6 +15,9 @@ import * as postService from './services/postService'
 import CodeList from './pages/CodeList/CodeList'
 import AddComment from './components/AddComments/AddComments'
 import * as authService from './services/authService'
+import ProfilePage from './ProfilePage/ProfilePage'
+import DisplayCodes from './pages/CodeList/DisplayCodes'
+import * as profileService from './services/profileService'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -22,13 +25,24 @@ const App = () => {
   const[comments, setComments] = useState([])
   const navigate = useNavigate()
 
-  
-  const handleAddPost = async (newPostData, photo) => {
-    const newPost = await postService.create(newPostData)
-    if (photo) {
-      newPost.photo = await postPhotoHelper(photo, newPost._id)
+  const [profiles, setProfiles] = useState([])
+
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      const profileData = await profileService.getAllProfiles()
+      setProfiles(profileData)
     }
+    fetchProfiles()
+  }, [])
+
+  
+  const handleAddPost = async (newPostData) => {
+    const newPost = await postService.create(newPostData)
+    // if (photo) {
+    //   newPost.photo = await postPhotoHelper(photo, newPost._id)
+    // }
     setPosts([...posts, newPost])
+    navigate('/index')
   }
   
   const postPhotoHelper = async (photo, id) => {
@@ -60,9 +74,12 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  const handleUpdatePost = async (postData) => {
-    const updatedPost = await postService.update(postData)
-    setPosts([...posts.filter(post => post._id !== postData._id), updatedPost])
+  const handleUpdatePost = async (updatedPostData) => {
+    const updatedPost = await postService.update(updatedPostData)
+    const newPostsArray = posts.map(post =>
+      post._id === updatedPost._id ? updatedPost : post)
+      setPosts(newPostsArray)
+      navigate('/index')
   }
 
   return (
@@ -71,19 +88,21 @@ const App = () => {
       <NavBar user={user} handleLogout={handleLogout} />
       <main>
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
-        <Route
-          path="/signup"
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
-          />
-        <Route
-          path="/login"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
-          />
-        <Route
-          path="/profiles"
-          element={user ? <Profiles /> : <Navigate to="/login" />}
-          />
+        <Route 
+          path="/" 
+          element={<Landing user={user} />} />
+        <Route 
+          path="/signup" 
+          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}/>
+        <Route 
+          path="/login" 
+          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}/>
+        <Route 
+          path="/profiles" 
+            element={
+              user ? 
+                <Profiles posts={posts}/> : 
+                <Navigate to="/login" />}/>
         <Route
           path="/changePassword"
           element={
@@ -92,17 +111,36 @@ const App = () => {
               ) : (
                 <Navigate to="/login" />
                 )
-              }
-        />
-        <Route
-          path="/index"
-          element={user ? <Index posts={posts}/> : <Navigate to="/login" />}
+              }/>
+        
+          <Route
+            path="/index"
+            element={user ? 
+              <Index posts={posts} user={user}/> : 
+              <Navigate to="/login" />}
           />
-          <Route path="/addPost" element={<AddPost />}/>
-          <Route path="/addPost" element={<AddPost handleAddPost={handleAddPost} />}/>
-          <Route path="/codeList" element={<CodeList posts={posts} />}/>
-          <Route path='/edit' element={<EditPost handleUpdatePost={handleUpdatePost}/>}/>
-          <Route path='/addComment' element={<AddComment handleAddComment={handleAddComment}/>}/>
+          
+          <Route 
+            path="/displayCodes" 
+            element={<DisplayCodes />}/>
+          <Route 
+            path="/addPost" 
+            element={<AddPost handleAddPost={handleAddPost} />}/>
+          <Route 
+            path="/codeList" 
+            element={<CodeList posts={posts} />}/>
+          <Route 
+            path='/edit' 
+            element={<EditPost handleUpdatePost={handleUpdatePost}/>}/>
+          <Route 
+            path='/addComment' 
+            element={<AddComment handleAddComment={handleAddComment}/>}/>
+          <Route
+            path="/:profileId"
+            element={
+              user ? 
+                <ProfilePage profiles={profiles} posts={posts}/> : 
+                <Navigate to="/login" />}/>
       </Routes>
       </main>
     </div>

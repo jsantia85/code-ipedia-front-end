@@ -3,10 +3,13 @@ import { Link, useLocation } from "react-router-dom"
 import CodeEditor from "../../components/CodeEditor/CodeEditor"
 
 function EditPost(props) {
-	const [code, setCode] = useState('')
   const formElement = useRef()
 	const location = useLocation()
-  const [formData, setFormData] = useState(location.state.post)
+
+  
+
+	const [code, setCode] = useState('')
+  const [formData, setFormData] = useState(location.state)
   const [validForm, setValidForm] = useState(false)
   
   const handleChange = evt => {
@@ -24,6 +27,7 @@ function EditPost(props) {
   }
   
 	return (
+    // <h1>edit Post</h1>
 		<>
 			<h1>Add Post</h1>
 			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
@@ -72,7 +76,7 @@ function EditPost(props) {
             required
 					/> */}
 					<CodeEditor
-					code={code}
+					code={formData.code}
 					onValueChange={code => setCode(code)}
 					/>
 				</div>
