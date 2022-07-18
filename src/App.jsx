@@ -18,7 +18,7 @@ import * as authService from './services/authService'
 import ProfilePage from './ProfilePage/ProfilePage'
 import DisplayCodes from './pages/CodeList/DisplayCodes'
 import * as profileService from './services/profileService'
-
+import { PostDetails } from './pages/PostDetails/PostDetails'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [posts, setPosts] = useState([])
@@ -140,6 +140,9 @@ const App = () => {
               user ? 
                 <ProfilePage profiles={profiles} posts={posts} user={user}/> : 
                 <Navigate to="/login" />}/>
+          <Route 
+            path="/index/:postId"
+            element={<PostDetails profiles={profiles} posts={posts} user={user} />}/>
       </Routes>
       </main>
     </div>

@@ -26,6 +26,7 @@ const CodeCard = (props) => {
             >
               Edit
             </Link>
+          
           </div>
         }
         </div>
