@@ -6,17 +6,26 @@ import CodeNav from './CodeNav'
 
 const CodeList = (props) => {
 console.log(props)
-  const [codeCategory, setCodeCategory] = useState('HTML')
+const categories = [...new Set(props.posts?.map((p) => p?.category[0]?.category))]
+console.log(categories)
+const [category, setCategory] = useState('HTML')
 
   return (
-      <h1>Display</h1>
-    // <div className="code-list">
-    //   <section>
-    //     <CodeNav setCodeCategory={setCodeCategory} />
-    //     <DisplayCodes codeCategory={codeCategory} />
-    //   </section>
+    <div className="code-list">
+      <h1>Code List</h1>
+      <select onChange={(e)=>setCategory(e.target.value)}>
+        {categories.map((c,idx) => (
+          <option value={c} key={idx}>
+            {c}
+          </option>
+        ))}
+      </select>
+      <h3>Now viewing {category}</h3>
+      <section>
+        <DisplayCodes category={category} posts={props.posts}/>
+      </section>
 
-    // </div>
+    </div>
   )
 }
 

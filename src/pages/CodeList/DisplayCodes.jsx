@@ -2,19 +2,18 @@ import Code from './Code'
 
 const DisplayCodes = (props) => {
 console.log(props)
-  // const selectedCodes = props.codes.map((code, idx) => {
-  //   return code.category === props.codeCategory &&
-  //     <Code
-  //       key={idx}
-  //       code={code}
-  //     />
-  // })
+  const selectedCodes = props.posts.map((post, idx) => {
+    return post.category[0].category === props.category &&
+      <Code
+        key={idx}
+        post={post}
+      />
+  })
 
   return (
-    <h1>Display codes</h1>
-    // <div className="code-list">
-    //   {selectedCodes}
-    // </div>
+    <div className="code-list">
+      {selectedCodes}
+    </div>
   )
 }
 
