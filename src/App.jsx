@@ -24,12 +24,13 @@ const App = () => {
   const navigate = useNavigate()
 
   
-  const handleAddPost = async (newPostData, photo) => {
+  const handleAddPost = async (newPostData) => {
     const newPost = await postService.create(newPostData)
-    if (photo) {
-      newPost.photo = await postPhotoHelper(photo, newPost._id)
-    }
+    // if (photo) {
+    //   newPost.photo = await postPhotoHelper(photo, newPost._id)
+    // }
     setPosts([...posts, newPost])
+    navigate('/index')
   }
   
   const postPhotoHelper = async (photo, id) => {
@@ -61,9 +62,12 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  const handleUpdatePost = async (postData) => {
-    const updatedPost = await postService.update(postData)
-    setPosts([...posts.filter(post => post._id !== postData._id), updatedPost])
+  const handleUpdatePost = async (updatedPostData) => {
+    const updatedPost = await postService.update(updatedPostData)
+    const newPostsArray = posts.map(post =>
+      post._id === updatedPost._id ? updatedPost : post)
+      setPosts(newPostsArray)
+      navigate('/index')
   }
 
   return (

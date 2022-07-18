@@ -10,7 +10,7 @@ const CodeCard = (props) => {
         <div className="code-card-body-code">
           {/* <pre>
             <code>
-              {props.post.code}
+              {props.code}
             </code>
           </pre> */}
         </div>
@@ -19,6 +19,7 @@ const CodeCard = (props) => {
         {props.user?.profile === props.author?._id &&
           <div className="card-footer">
             <Link
+              state={props.post}
               to="/edit"
               className='btn btn-sm btn-primary'
             >
