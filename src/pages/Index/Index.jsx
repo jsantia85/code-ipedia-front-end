@@ -15,6 +15,7 @@ const Index = (props) => {
             post={post}
             title={post.title}
             author={post.author.name}
+            categories={post.categories}
             user={props.user}
             code={props.code}
             />

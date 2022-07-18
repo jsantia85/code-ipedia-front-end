@@ -1,12 +1,12 @@
 import Code from './Code'
 
 const DisplayCodes = (props) => {
-
-  const selectedCodes = props.codes.map((code, idx) => {
-    return code.category === props.codeCategory &&
+console.log(props)
+  const selectedCodes = props.posts.map((post, idx) => {
+    return post.category[0].category === props.category &&
       <Code
         key={idx}
-        code={code}
+        post={post}
       />
   })
 

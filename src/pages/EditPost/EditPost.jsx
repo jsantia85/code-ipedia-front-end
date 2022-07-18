@@ -9,7 +9,12 @@ function EditPost(props) {
   
 
 	const [code, setCode] = useState('')
-  const [formData, setFormData] = useState(location.state)
+	const initialState = {
+		title:location.state.title,
+		code:location.state.code,
+		category:location.state.category.category
+	}
+  const [formData, setFormData] = useState(initialState)
   const [validForm, setValidForm] = useState(false)
   
   const handleChange = evt => {
@@ -23,13 +28,18 @@ function EditPost(props) {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    props.handleUpdatePost(formData)
+	const form = {
+		title: formData.title,
+		code: formData.code,
+		category: {category: formData.category}
+	}
+    props.handleUpdatePost(form)
   }
   
 	return (
     // <h1>edit Post</h1>
 		<>
-			<h1>Add Post</h1>
+			<h1>Edit Post</h1>
 			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 				<div className="form-group mb-3">
 					<label htmlFor="title-input" className="form-label">

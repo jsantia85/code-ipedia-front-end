@@ -22,7 +22,12 @@ function AddPost(props) {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    props.handleAddPost(formData)
+	const form = {
+		title: formData.title,
+		code: formData.code,
+		category: {category: formData.category}
+	}
+    props.handleAddPost(form)
   }
   
 	return (
@@ -38,9 +43,9 @@ function AddPost(props) {
 						className="form-control"
 						id="title-input"
 						name="title"
-            value={formData.title}
-            onChange={handleChange}
-            placeholder="Breifly Describes Code"
+						value={formData.title}
+						onChange={handleChange}
+						placeholder="Breifly Describes Code"
 						required
 					/>
 				</div>

@@ -16,6 +16,7 @@ const CodeCard = (props) => {
           </pre> */}
         </div>
         <div className="card-text">
+          <p>{props.categories}</p>
           <p>{props.author}</p>
         {props.user?.profile === props.post.author?._id &&
           <div className="card-footer">

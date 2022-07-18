@@ -119,6 +119,7 @@ const App = () => {
               <Index posts={posts} user={user}/> : 
               <Navigate to="/login" />}
           />
+          
           <Route 
             path="/displayCodes" 
             element={<DisplayCodes />}/>
@@ -127,7 +128,7 @@ const App = () => {
             element={<AddPost handleAddPost={handleAddPost} />}/>
           <Route 
             path="/codeList" 
-            element={<CodeList />}/>
+            element={<CodeList posts={posts} />}/>
           <Route 
             path='/edit' 
             element={<EditPost handleUpdatePost={handleUpdatePost}/>}/>
