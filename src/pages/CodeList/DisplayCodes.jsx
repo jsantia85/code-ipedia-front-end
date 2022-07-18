@@ -11,6 +11,7 @@ const DisplayCodes = (props) => {
   })
 
   return (
+    // <h1>Display codes</h1>
     <div className="code-list">
       {selectedCodes}
     </div>

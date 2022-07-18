@@ -12,6 +12,7 @@ const Index = (props) => {
             key={post._id}
             title={post.title}
             author={post.author.name}
+            categories={post.categories}
             user={props.user}
           />
         )}

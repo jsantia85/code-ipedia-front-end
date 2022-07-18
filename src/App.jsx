@@ -100,7 +100,7 @@ const App = () => {
           />
           <Route path="/addPost" element={<AddPost />}/>
           <Route path="/addPost" element={<AddPost handleAddPost={handleAddPost} />}/>
-          <Route path="/codeList" element={<CodeList />}/>
+          <Route path="/codeList" element={<CodeList posts={posts} />}/>
           <Route path='/edit' element={<EditPost handleUpdatePost={handleUpdatePost}/>}/>
           <Route path='/addComment' element={<AddComment handleAddComment={handleAddComment}/>}/>
       </Routes>

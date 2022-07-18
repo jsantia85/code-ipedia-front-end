@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import DisplayCodes from './DisplayCodes'
 import CodeNav from './CodeNav'
-// import { codes } from '../Index/data'
+import { codes } from '../Index/data'
 
 const CodeList = (props) => {
 
