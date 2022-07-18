@@ -101,7 +101,7 @@ const App = () => {
         />
         <Route
           path="/index"
-          element={user ? <Index posts={posts}/> : <Navigate to="/login" />}
+          element={user ? <Index posts={posts} user={user}/> : <Navigate to="/login" />}
           />
           <Route path="/addPost" element={<AddPost />}/>
           <Route path="/displayCodes" element={<DisplayCodes />}/>
