@@ -3,9 +3,7 @@ const ProfilePage = () => {
 
   return (
     <>
-      <h1>Welcome to </h1>
-      
-
+      <h1>Welcome to Code-Ipedia</h1>
     </>
   );
 }

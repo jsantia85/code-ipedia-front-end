@@ -26,6 +26,13 @@ const CodeCard = (props) => {
             >
               Edit
             </Link>
+            <Link
+              state={props.post}
+              to="/post/:id"
+              className='btn btn-sm btn-primary'
+            >
+              View
+            </Link>
           </div>
         }
         </div>

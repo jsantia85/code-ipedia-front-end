@@ -29,6 +29,9 @@ function AddComment (props) {
   return (
     <>
     <h1>Add Comment</h1>
+    <div>
+      
+    </div>
     <form autoComplete='off' ref={formElement} onSubmit={handleSubmit}>
     <div>
       <label>User: </label>
