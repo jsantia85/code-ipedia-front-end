@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: grid;
   grid-template-rows: 7vmin auto;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .App-header {
@@ -16,7 +16,9 @@
 }
 
 nav > a {
-  color: #E1ECD4
+  color: #E1ECD4;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
 }
 
 .App main {
@@ -34,4 +36,11 @@ nav > a:hover {
 .App main h1 {
   color: #283434;
   margin-bottom: 5vmin;
+  font-weight: 300;
+}
+
+nav > .active{
+  color: #BAA3FE;
+  background-color: #283434;
+  font-size: 3vmin;
 }
