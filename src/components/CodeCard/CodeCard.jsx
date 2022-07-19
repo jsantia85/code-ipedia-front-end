@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const CodeCard = (props) => {
-  console.log(props.post.author._id)
+
   return(
     <div className="card">
       <div className="card-header">
@@ -27,6 +27,9 @@ const CodeCard = (props) => {
             >
               Edit
             </Link>
+            <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePost(props.post._id)}>
+              Delete
+            </button>
           </div>
         }
         </div>

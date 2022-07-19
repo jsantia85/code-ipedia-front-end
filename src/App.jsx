@@ -13,11 +13,13 @@ import AddPost from './pages/AddPost/AddPost'
 import EditPost from './pages/EditPost/EditPost'
 import * as postService from './services/postService'
 import CodeList from './pages/CodeList/CodeList'
-import AddComment from './components/AddComments/AddComments'
+// import AddComment from './components/AddComments/AddComments'
 import * as authService from './services/authService'
 import ProfilePage from './ProfilePage/ProfilePage'
 import DisplayCodes from './pages/CodeList/DisplayCodes'
 import * as profileService from './services/profileService'
+import { PostDetails}   from './pages/PostDetails/PostDetails'
+import { CommentsList } from './pages/PostDetails/CommentsList'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -51,7 +53,8 @@ const App = () => {
     return await postService.addPhoto(photoData, id)
   }
   
-  const handleAddComment = newCommentData => {
+  const handleAddComment = async newCommentData => {
+    const newComment = await postService.create(newCommentData)
     setComments([...comments, newCommentData])
   }
 
@@ -80,6 +83,11 @@ const App = () => {
       post._id === updatedPost._id ? updatedPost : post)
       setPosts(newPostsArray)
       navigate('/index')
+  }
+
+  const handleDeletePost = async id => {
+    const deletedPost = await postService.deleteOne(id)
+    setPosts(posts.filter(post => post._id !== deletedPost._id))
   }
 
   return (
@@ -116,7 +124,7 @@ const App = () => {
           <Route
             path="/index"
             element={user ? 
-              <Index posts={posts} user={user}/> : 
+              <Index posts={posts} user={user} handleDeletePost={handleDeletePost}/> : 
               <Navigate to="/login" />}
           />
           
@@ -132,15 +140,21 @@ const App = () => {
           <Route 
             path='/edit' 
             element={<EditPost handleUpdatePost={handleUpdatePost}/>}/>
-          <Route 
+          {/* <Route 
             path='/addComment' 
-            element={<AddComment handleAddComment={handleAddComment}/>}/>
+            element={<AddComment handleAddComment={handleAddComment}/>}/> */}
           <Route
             path="/:profileId"
             element={
               user ? 
                 <ProfilePage profiles={profiles} posts={posts} user={user}/> : 
                 <Navigate to="/login" />}/>
+          <Route 
+            path="/index/:postId"
+            element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} />}/>
+          <Route 
+          path ='/index/:postId'
+          element={<CommentsList comments={comments}/>}/>
       </Routes>
       </main>
     </div>
