@@ -1,6 +1,10 @@
 import { useState, useRef, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
-import CodeEditor from "../../components/CodeEditor/CodeEditor"
+import Editor from "react-simple-code-editor"
+import { highlight, languages } from "prismjs/components/prism-core";
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/themes/prism-tomorrow.css';
 
 function EditPost(props) {
   const formElement = useRef()
@@ -10,9 +14,9 @@ function EditPost(props) {
 
 	const [code, setCode] = useState('')
 	const initialState = {
-		title:location.state.title,
-		code:location.state.code,
-		category:location.state.category.category
+		title: location.state.title,
+		code: location.state.code,
+		category: location.state.category.category
 	}
   const [formData, setFormData] = useState(initialState)
   const [validForm, setValidForm] = useState(false)
@@ -39,7 +43,7 @@ function EditPost(props) {
 	return (
     // <h1>edit Post</h1>
 		<>
-			<h1>Edit Post</h1>
+	<h1>Add Post</h1>
 			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 				<div className="form-group mb-3">
 					<label htmlFor="title-input" className="form-label">
@@ -50,9 +54,9 @@ function EditPost(props) {
 						className="form-control"
 						id="title-input"
 						name="title"
-            value={formData.title}
-            onChange={handleChange}
-            placeholder="Breifly Describes Code"
+						value={formData.title}
+						onChange={handleChange}
+						placeholder="What your code does"
 						required
 					/>
 				</div>
@@ -85,10 +89,24 @@ function EditPost(props) {
             placeholder="console.log('Sanity')"
             required
 					/> */}
-					<CodeEditor
-					code={formData.code}
-					onValueChange={code => setCode(code)}
-					/>
+					<Editor
+						value={formData.code}
+						name="code"
+						code={code}
+						onValueChange={code => setCode(code)}
+						onChange={handleChange}
+						highlight={code => highlight(code, languages.js)}
+						padding={10}
+						textareaClassName="code-editor"
+						preClassName="code-editor-pre"
+						style={{
+							fontFamily: '"Fira code", "Fira Mono", monospace',
+							backgroundColor: "#fdfdfd",
+							color: "#333",
+							border: "1px solid #ddd",
+							borderRadius: "4px",
+							fontSize: 16,
+						}}/>
 				</div>
 				<div className="d-grid">
 					<button
