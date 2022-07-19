@@ -4,7 +4,7 @@ import {useLocation} from 'react-router-dom'
 import AddComment from "../../components/AddComments/AddComments"
 import style from './PostDetails.module.css'
 import { CommentsList } from "./CommentsList"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 function PostDetails (props) {
   console.log('THIS IS PROPS.HANDLEDELETEPOST', props.handleDeletePost)
@@ -33,9 +33,11 @@ function PostDetails (props) {
             >
               Edit
             </Link>
-            <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePost(post._id)}>
-              Delete
-            </button>
+            <NavLink to="/index">
+              <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePost(post._id)}>
+                Delete
+              </button>
+            </NavLink>
           </div>
         }
       <div>
