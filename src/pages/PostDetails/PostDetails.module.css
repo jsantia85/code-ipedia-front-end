@@ -11,12 +11,16 @@ h5 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 90px;
+  margin-top:10px;
 
 }
 
 section {
   border: 3px solid black;
   margin: 40px;
-  padding: 150px;
+  padding: 50px;
+}
+
+#add-comment {
+  margin-bottom: 40px;
 }

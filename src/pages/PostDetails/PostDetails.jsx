@@ -21,14 +21,17 @@ function PostDetails (props) {
         user={props.user}
         />
       </div>
-      <div>
+      <section>
+
+      <div className="add-comment">
         <h5>Say something nice.</h5>
         <AddComment
           key={post._id}
           user={props.user}
           author={post.author.name} />
-          <CommentsList />
       </div>
+          <CommentsList />
+          </section>
     </>
   )
 }

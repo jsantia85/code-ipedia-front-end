@@ -154,7 +154,7 @@ const App = () => {
             element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} />}/>
           <Route 
           path ='/index/:postId'
-          element={<CommentsList comments={comments}/>}/>
+          element={<CommentsList profiles={profiles} posts={posts} user={user} comments={comments}/>}/>
       </Routes>
       </main>
     </div>

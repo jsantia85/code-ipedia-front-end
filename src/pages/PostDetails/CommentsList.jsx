@@ -1,16 +1,13 @@
-import AddComment from '../../components/AddComments/AddComments'
+// import AddComment from '../../components/AddComments/AddComments'
 import style from './PostDetails.module.css'
 
 function CommentsList (props) {
 
 
   return (
-    <section>
-      <AddComment />
     <div className= {style.container}>
-      <p>{props.comments}</p>
+      <h1>it still work</h1>
     </div>
-    </section>
   )
 }
 
