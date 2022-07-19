@@ -9,11 +9,11 @@ const CodeCard = (props) => {
       </div>
       <div className="card-body">
         <div className="code-card-body-code">
-          {/* <pre> */}
+          <pre>
             <code>
               {props.post.code}
             </code>
-          {/* </pre> */}
+          </pre>
         </div>
         <div className="card-text">
           <p>{props.post.category.category}</p>
