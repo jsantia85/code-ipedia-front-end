@@ -9,14 +9,11 @@ import 'prismjs/themes/prism-tomorrow.css';
 function EditPost(props) {
   const formElement = useRef()
 	const location = useLocation()
-
-  
-
 	const [code, setCode] = useState('')
 	const initialState = {
-		title: location.state.title,
-		code: location.state.code,
-		category: location.state.category.category
+		title: location.state.post.title,
+		code: location.state.post.code,
+		category: location.state.post.category.category
 	}
   const [formData, setFormData] = useState(initialState)
   const [validForm, setValidForm] = useState(false)
