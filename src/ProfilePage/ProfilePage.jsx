@@ -9,7 +9,7 @@ const ProfilePage = (props) => {
   
   return (
     <>
-      <h1>Welcome to {location.state.profile.name}'s Profile Page</h1>
+      <h1>Welcome to {location.state.profile.name}'s Profile Page!</h1>
       <div className={styles.container}>
       {location.state.posts.map(post => 
         <Link to={`/index/${post._id}`} key={post._id} className={styles.text} state={post}>
@@ -25,7 +25,6 @@ const ProfilePage = (props) => {
             </Link>
         )}
       </div>
-
     </>
   );
 }

@@ -53,7 +53,6 @@ async function createComment (comment) {
 	return res.json()
 }
 
-
 async function deleteOne(id) {
   console.log('DeleteOne')
   const res = await fetch(`${BASE_URL}/${id}`, {
