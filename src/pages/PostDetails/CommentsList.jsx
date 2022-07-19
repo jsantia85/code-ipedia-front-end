@@ -6,6 +6,7 @@ function CommentsList (props) {
 
   return (
     <section>
+      <AddComment />
     <div className= {style.container}>
       <p>{props.comments}</p>
     </div>

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+// import { CommentsList } from '../../pages/PostDetails/CommentsList'
 import './AddComments.css'
 
 
@@ -68,6 +69,8 @@ function AddComment(props) {
         disabled={!validForm}> 
         Add Comment
 		    </button>
+
+
       </div>
   </form>
   </>

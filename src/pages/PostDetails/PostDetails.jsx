@@ -27,7 +27,6 @@ function PostDetails (props) {
           key={post._id}
           user={props.user}
           author={post.author.name} />
-
           <CommentsList />
       </div>
     </>
