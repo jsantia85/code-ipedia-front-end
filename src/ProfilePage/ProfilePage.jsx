@@ -8,7 +8,7 @@ const ProfilePage = (props) => {
   
   return (
     <>
-      <h1>Welcome to {location.state.profile.name}'s Profile Page</h1>
+      <h1>Welcome to {location.state.profile.name}'s Profile Page!</h1>
       <div className={styles.container}>
         {location.state.posts.map(post => 
           post.author._id === profileId && 
@@ -21,7 +21,6 @@ const ProfilePage = (props) => {
             />
         )}
       </div>
-
     </>
   );
 }
