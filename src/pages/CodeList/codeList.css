@@ -6,3 +6,12 @@
     justify-content: center;
     gap: 20px;
   }
+
+  .cardCode {
+    display: flex;
+    width: 300px;
+    background-color: #283434;
+    border-radius: 10px;
+    color: whitesmoke;
+    padding: 10px;
+  }

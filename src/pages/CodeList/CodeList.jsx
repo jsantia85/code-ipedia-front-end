@@ -22,10 +22,12 @@ const [category, setCategory] = useState('HTML')
         ))}
       </select>
       <h3>Now viewing {category}</h3>
+      <div className="cardCode">
       <section>
         <DisplayCodes category={category} posts={props.posts}/>
       </section>
 
+    </div>
     </div>
   )
 }
