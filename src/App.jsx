@@ -149,7 +149,7 @@ const App = () => {
                 <Navigate to="/login" />}/>
           <Route 
             path="/index/:postId"
-            element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} />}/>
+            element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} handleDeletePost={handleDeletePost}/>}/>
           <Route 
           path ='/index/:postId'
           element={<CommentsList comments={comments}/>}/>
