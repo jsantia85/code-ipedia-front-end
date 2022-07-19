@@ -49,7 +49,7 @@ function AddPost(props) {
 						name="title"
 						value={formData.title}
 						onChange={handleChange}
-						placeholder="Breifly Describes Code"
+						placeholder="What your code does"
 						required
 					/>
 				</div>
