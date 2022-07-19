@@ -1,5 +1,13 @@
-.container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.landing {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+
+.img {
+  position: fixed;
+  left: 0;
+  align-items: left;
 }
