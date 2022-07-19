@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import './AddComments.css'
 
 
-function AddComment (props) {
+function AddComment(props) {
   const [formData, setFormData]= useState({
     comments: '',
     author: '',
@@ -10,6 +10,7 @@ function AddComment (props) {
   
   const [validForm, setValidForm] = useState(false)
   const formElement = useRef()
+
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
@@ -18,8 +19,9 @@ function AddComment (props) {
     evt.preventDefault()
     props.handleAddComment(formData)
   }
-  console.log('it wokr')
+  // console.log('it wokr')
   
+
   useEffect(() => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
 	}, [formData])
@@ -28,11 +30,11 @@ function AddComment (props) {
 
   return (
     <>
-    <h1>Add Comment</h1>
+    
     <div>
       
     </div>
-    <form autoComplete='off' ref={formElement} onSubmit={handleSubmit}>
+    			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
     <div>
       <label>User: </label>
     <input 
@@ -41,9 +43,7 @@ function AddComment (props) {
 						name="author"
 						required
 					/>
-
       </div>
-      
       <div>
       <textarea 
         type="text"
@@ -59,6 +59,7 @@ function AddComment (props) {
         <button
         type="submit"
 	      className="btn btn-primary btn-fluid"
+        onClick={handleSubmit}
         disabled={!validForm}> 
         Add Comment
 		    </button>

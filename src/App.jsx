@@ -13,12 +13,14 @@ import AddPost from './pages/AddPost/AddPost'
 import EditPost from './pages/EditPost/EditPost'
 import * as postService from './services/postService'
 import CodeList from './pages/CodeList/CodeList'
-import AddComment from './components/AddComments/AddComments'
+// import AddComment from './components/AddComments/AddComments'
 import * as authService from './services/authService'
 import ProfilePage from './ProfilePage/ProfilePage'
 import DisplayCodes from './pages/CodeList/DisplayCodes'
 import * as profileService from './services/profileService'
-import { PostDetails } from './pages/PostDetails/PostDetails'
+import { PostDetails}   from './pages/PostDetails/PostDetails'
+import { CommentsList } from './pages/PostDetails/CommentsList'
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [posts, setPosts] = useState([])
@@ -51,7 +53,8 @@ const App = () => {
     return await postService.addPhoto(photoData, id)
   }
   
-  const handleAddComment = newCommentData => {
+  const handleAddComment = async newCommentData => {
+    const newComment = await postService.create(newCommentData)
     setComments([...comments, newCommentData])
   }
 
@@ -137,9 +140,9 @@ const App = () => {
           <Route 
             path='/edit' 
             element={<EditPost handleUpdatePost={handleUpdatePost}/>}/>
-          <Route 
+          {/* <Route 
             path='/addComment' 
-            element={<AddComment handleAddComment={handleAddComment}/>}/>
+            element={<AddComment handleAddComment={handleAddComment}/>}/> */}
           <Route
             path="/:profileId"
             element={
@@ -148,7 +151,10 @@ const App = () => {
                 <Navigate to="/login" />}/>
           <Route 
             path="/index/:postId"
-            element={<PostDetails profiles={profiles} posts={posts} user={user} />}/>
+            element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} />}/>
+          <Route 
+          path ='/index/:postId'
+          element={<CommentsList comments={comments}/>}/>
       </Routes>
       </main>
     </div>
