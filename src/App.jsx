@@ -137,7 +137,7 @@ const App = () => {
             element={<CodeList posts={posts} />}/>
           <Route 
             path='/edit' 
-            element={<EditPost handleUpdatePost={handleUpdatePost}/>}/>
+            element={<EditPost user={user} handleUpdatePost={handleUpdatePost}/>}/>
           {/* <Route 
             path='/addComment' 
             element={<AddComment handleAddComment={handleAddComment}/>}/> */}
@@ -149,7 +149,7 @@ const App = () => {
                 <Navigate to="/login" />}/>
           <Route 
             path="/index/:postId"
-            element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} handleDeletePost={handleDeletePost}/>}/>
+            element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/>
           <Route 
           path ='/index/:postId'
           element={<CommentsList profiles={profiles} posts={posts} user={user} comments={comments} handleAddComment={handleAddComment}/>}/>
