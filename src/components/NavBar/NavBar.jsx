@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
@@ -6,19 +7,19 @@ const NavBar = ({ user, handleLogout }) => {
     <header className="App-header">
       {user ?
         <nav>
-            <Link to="/profiles">Profiles</Link>
-            <Link to="/index">Index</Link>
-            <Link to="/addPost">Add Post</Link>
-            <Link to="/codeList">Code</Link>
+            <NavLink to="/profiles">Profiles</NavLink>
+            <NavLink to="/index">Index</NavLink>
+            <NavLink to="/addPost">Add Post</NavLink>
+            <NavLink to="/codeList">Code</NavLink>
             <Link to="" onClick={handleLogout}>LOG OUT</Link>
-            <Link to="/changePassword">Change Password</Link>
+            <NavLink to="/changePassword">Change Password</NavLink>
             {/* <Link to='/addComment'>Add Comment</Link> */}
             
         </nav>
       :
         <nav>
-            <Link to="/login">Log In</Link>
-            <Link to="/signup">Sign Up</Link>
+            <NavLink to="/login">Log In</NavLink>
+            <NavLink to="/signup">Sign Up</NavLink>
         </nav>
       }
       </header>
