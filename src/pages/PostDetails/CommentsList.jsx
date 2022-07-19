@@ -8,6 +8,7 @@ function CommentsList (props) {
     <>
     <div className= {style.container}>
       <p>{props.comments}</p>
+      <p>it works</p>
     </div>
     </>
   )

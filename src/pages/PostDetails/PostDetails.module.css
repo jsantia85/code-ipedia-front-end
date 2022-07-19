@@ -18,7 +18,9 @@ h5 {
 section {
   border: 3px solid black;
   margin: 40px;
-  padding: 50px;
+  padding-left: 200px;
+  padding-right: 200px;
+  background-color: antiquewhite;
 }
 
 #add-comment {

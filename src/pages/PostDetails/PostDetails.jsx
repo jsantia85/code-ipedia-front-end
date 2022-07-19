@@ -50,8 +50,8 @@ function PostDetails (props) {
             author={post.author.name} 
             handleAddComment={props.handleAddComment}/>
           </div>
-          <CommentsList />
         </section>
+          <CommentsList />
     </>
   )
 }
