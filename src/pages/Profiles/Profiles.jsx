@@ -25,7 +25,9 @@ const Profiles = (props) => {
               <div className={styles.card}>
                 <img src={profile.photo} alt="" />
                 <div className={styles.cardBody}>
-                  <h3 className={styles.cardTitle}>{profile.name}</h3>
+                  <h3 className={styles.cardTitle}>
+                    {profile.name}
+                  </h3>
                 </div>
               </div>
             </Link>

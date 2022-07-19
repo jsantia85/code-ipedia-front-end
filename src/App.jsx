@@ -26,7 +26,6 @@ const App = () => {
   const [posts, setPosts] = useState([])
   const[comments, setComments] = useState([])
   const navigate = useNavigate()
-
   const [profiles, setProfiles] = useState([])
 
   useEffect(() => {
@@ -81,8 +80,8 @@ const App = () => {
     const updatedPost = await postService.update(updatedPostData)
     const newPostsArray = posts.map(post =>
       post._id === updatedPost._id ? updatedPost : post)
-      setPosts(newPostsArray)
-      navigate('/index')
+    setPosts(newPostsArray)
+    navigate('/index')
   }
 
   const handleDeletePost = async id => {
@@ -127,7 +126,6 @@ const App = () => {
               <Index posts={posts} user={user} handleDeletePost={handleDeletePost}/> : 
               <Navigate to="/login" />}
           />
-          
           <Route 
             path="/displayCodes" 
             element={<DisplayCodes />}/>
