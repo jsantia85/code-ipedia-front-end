@@ -5,9 +5,11 @@ function CommentsList (props) {
 
 
   return (
+    <>
     <div className= {style.container}>
-      <h1>it still work</h1>
+      <p>{props.comments}</p>
     </div>
+    </>
   )
 }
 

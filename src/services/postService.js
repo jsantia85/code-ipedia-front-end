@@ -41,17 +41,17 @@ async function update(post) {
   return res.json()
 }
 
-async function createComment (comment) {
-  const res = await fetch(BASE_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${tokenService.getToken()}`
-    },
-    body: JSON.stringify(comment)
-  })
-	return res.json()
-}
+// async function createComment(post) {
+//   const res = await fetch(`${BASE_URL}/${post._id}`, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Authorization': `Bearer ${tokenService.getToken()}`
+//     },
+//     body: JSON.stringify(post)
+//   })
+// 	return res.json()
+// }
 
 
 async function deleteOne(id) {
@@ -70,6 +70,6 @@ export {
   getAll,
   addPhoto,
   update,
-  createComment,
+  // createComment,
   deleteOne,
 }

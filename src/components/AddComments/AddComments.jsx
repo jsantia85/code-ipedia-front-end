@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 // import { CommentsList } from '../../pages/PostDetails/CommentsList'
 import './AddComments.css'
-
+// import { Link } from 'react-router-dom'
+// import styles from "./Index.module.css";
 
 function AddComment(props) {
 
@@ -23,6 +24,7 @@ function AddComment(props) {
       author: formData.author,
       comments: {comments: formData.comments},
     }
+    console.log('this is props', props.handleAddComment)
     props.handleAddComment(form)
   }
   // console.log('it wokr')
@@ -36,11 +38,7 @@ function AddComment(props) {
 
   return (
     <>
-    
-    <div>
-      
-    </div>
-    			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
+    <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
     <div>
       <label>User: </label>
     <input 
@@ -48,7 +46,7 @@ function AddComment(props) {
 						id="author-input"
 						name="author"
 						required
-					/>
+            />
       </div>
       <div>
       <textarea 
@@ -58,10 +56,11 @@ function AddComment(props) {
         onChange={handleChange}
         rows="5"
         cols="33"
-      >
+        defaultValue={'Say something nice'}
+        >
       </textarea>
       </div>
-      <div>
+      
         <button
         type="submit"
 	      className="btn btn-primary btn-fluid"
@@ -69,9 +68,6 @@ function AddComment(props) {
         disabled={!validForm}> 
         Add Comment
 		    </button>
-
-
-      </div>
   </form>
   </>
   )

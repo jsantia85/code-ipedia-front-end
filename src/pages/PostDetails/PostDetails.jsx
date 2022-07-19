@@ -43,7 +43,8 @@ function PostDetails (props) {
           <AddComment
             key={post._id}
             user={props.user}
-            author={post.author.name} />
+            author={post.author.name} 
+            handleAddComment={props.handleAddComment}/>
           </div>
           <CommentsList />
         </section>
