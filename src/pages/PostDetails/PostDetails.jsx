@@ -4,6 +4,7 @@ import {useLocation} from 'react-router-dom'
 import AddComment from "../../components/AddComments/AddComments"
 import style from './PostDetails.module.css'
 import { CommentsList } from "./CommentsList"
+import { Link } from "react-router-dom"
 
 function PostDetails (props) {
   const location = useLocation()
@@ -21,6 +22,20 @@ function PostDetails (props) {
         user={props.user}
         />
       </div>
+        {props.user?.profile === post.author?._id &&
+          <div className="">
+            <Link
+              state={props.post}
+              to="/edit"
+              className='btn btn-sm btn-primary'
+            >
+              Edit
+            </Link>
+            <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePost(props.post._id)}>
+              Delete
+            </button>
+          </div>
+        }
       <div>
         <h5>Say something nice.</h5>
         <AddComment
