@@ -3,9 +3,10 @@ import './AddComments.css'
 
 
 function AddComment(props) {
+
   const [formData, setFormData]= useState({
-    comments: '',
     author: '',
+    comments: '',
   })
   
   const [validForm, setValidForm] = useState(false)
@@ -17,7 +18,11 @@ function AddComment(props) {
   
   const handleSubmit = evt => {
     evt.preventDefault()
-    props.handleAddComment(formData)
+    const form = {
+      author: formData.author,
+      comments: {comments: formData.comments},
+    }
+    props.handleAddComment(form)
   }
   // console.log('it wokr')
   
