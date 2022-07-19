@@ -3,6 +3,7 @@ import CodeCard from "../../components/CodeCard/CodeCard"
 import {useLocation} from 'react-router-dom'
 import AddComment from "../../components/AddComments/AddComments"
 import style from './PostDetails.module.css'
+import { CommentsList } from "./CommentsList"
 
 function PostDetails (props) {
   const location = useLocation()
@@ -26,6 +27,8 @@ function PostDetails (props) {
           key={post._id}
           user={props.user}
           author={post.author.name} />
+
+          <CommentsList />
       </div>
     </>
   )

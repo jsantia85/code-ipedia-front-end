@@ -19,6 +19,7 @@ import ProfilePage from './ProfilePage/ProfilePage'
 import DisplayCodes from './pages/CodeList/DisplayCodes'
 import * as profileService from './services/profileService'
 import { PostDetails}   from './pages/PostDetails/PostDetails'
+import { CommentsList } from './pages/PostDetails/CommentsList'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -151,6 +152,9 @@ const App = () => {
           <Route 
             path="/index/:postId"
             element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} />}/>
+          <Route 
+          path ='/index/:postId'
+          element={<CommentsList comments={comments}/>}/>
       </Routes>
       </main>
     </div>
