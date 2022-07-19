@@ -1,4 +1,4 @@
-import styles from './codeList.css'
+// import styles from './codeList.css'
 import { useState } from 'react'
 
 import DisplayCodes from './DisplayCodes'
@@ -12,7 +12,7 @@ console.log(categories)
 const [category, setCategory] = useState('HTML')
 
   return (
-    <div className={styles.code}>
+    <div className='code-list'>
       <h1>Code List</h1>
       <select onChange={(e)=>setCategory(e.target.value)}>
         {categories.map((c,idx) => (
