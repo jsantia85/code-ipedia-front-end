@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom';
 const ProfilePage = (props) => {
   const location = useLocation()
   const {profileId} = useParams()
-  
+  console.log(location)
+  console.log('props.posts',props.posts)
+  // console.log(props.)
   return (
     <>
       <h1>Welcome to {location.state.profile.name}'s Profile Page!</h1>
       <div className={styles.container}>
-      {location.state.posts.map(post => 
+      {props.posts.map(post => 
         <Link to={`/index/${post._id}`} key={post._id} className={styles.text} state={post}>
           {post.author._id === profileId && 
             <CodeCard 
@@ -22,7 +24,7 @@ const ProfilePage = (props) => {
               user={props.user}
             />
           }
-            </Link>
+        </Link>
         )}
       </div>
     </>

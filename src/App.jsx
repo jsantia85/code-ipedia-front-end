@@ -108,7 +108,7 @@ const App = () => {
           path="/profiles" 
             element={
               user ? 
-                <Profiles posts={posts}/> : 
+                <Profiles profiles={profiles}posts={posts}/> : 
                 <Navigate to="/login" />}/>
         <Route
           path="/changePassword"
