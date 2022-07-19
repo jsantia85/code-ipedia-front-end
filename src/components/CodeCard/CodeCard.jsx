@@ -9,14 +9,14 @@ const CodeCard = (props) => {
       </div>
       <div className="card-body">
         <div className="code-card-body-code">
-          {/* <pre>
+          {/* <pre> */}
             <code>
-              {props.code}
+              {props.post.code}
             </code>
-          </pre> */}
+          {/* </pre> */}
         </div>
         <div className="card-text">
-          <p>{props.categories}</p>
+          <p>{props.post.category.category}</p>
           <p>{props.author}</p>
         {props.user?.profile === props.post.author?._id &&
           <div className="card-footer">
@@ -32,6 +32,9 @@ const CodeCard = (props) => {
             </button>
           </div>
         }
+            <Link to={`/index/${props.post._id}`} key={props.post._id} state={props.post}>
+              View Details
+            </Link>
         </div>
       </div>
     </div>
