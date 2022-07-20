@@ -20,8 +20,6 @@ const ProfilePage = (props) => {
           <CodeCard 
             key={post._id}
             post={post}
-            title={post.title}
-            author={post.author.name}
             user={props.user}
           />
       </Link>

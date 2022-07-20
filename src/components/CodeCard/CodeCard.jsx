@@ -5,7 +5,7 @@ const CodeCard = (props) => {
   return(
     <div className="card">
       <div className="card-header">
-        <h3>{props.title}</h3>
+        <h3>{props.post.title}</h3>
       </div>
       <div className="card-body">
         <div className="code-card-body-code">
@@ -17,7 +17,7 @@ const CodeCard = (props) => {
         </div>
         <div className="card-text">
           <p>{props.post.category.category}</p>
-          <p>{props.author}</p>
+          <p>{props.post.author.name}</p>
         </div>
       </div>
     </div>
