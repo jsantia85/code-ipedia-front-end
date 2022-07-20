@@ -1,13 +1,14 @@
 import { useState, useRef, useEffect } from 'react'
 // import { CommentsList } from '../../pages/PostDetails/CommentsList'
 import './AddComments.css'
+import * as postService from '../../services/postService'
+import { CommentsList } from '../../pages/PostDetails/CommentsList'
 // import { Link } from 'react-router-dom'
 // import styles from "./Index.module.css";
 
 function AddComment(props) {
-
+  console.log(props.user)
   const [formData, setFormData]= useState({
-    author: '',
     comments: '',
   })
   
@@ -16,17 +17,19 @@ function AddComment(props) {
 
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
+    console.log(formData)
   }
   
   const handleSubmit = evt => {
     evt.preventDefault()
     const form = {
-      author: formData.author,
-      comments: {comments: formData.comments},
+      comments: formData.comments,
     }
     console.log('this is props', props.handleAddComment)
-    props.handleAddComment(form)
+    console.log(form)
+    postService.createComment(form, props.postId)
   }
+  console.log(props)
   // console.log('it wokr')
   
 
@@ -39,15 +42,6 @@ function AddComment(props) {
   return (
     <>
     <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
-    <div>
-      <label>User: </label>
-    <input 
-						type="text"
-						id="author-input"
-						name="author"
-						required
-            />
-      </div>
       <div>
       <textarea 
         type="text"
@@ -56,7 +50,7 @@ function AddComment(props) {
         onChange={handleChange}
         rows="5"
         cols="33"
-        defaultValue={'Say something nice'}
+        
         >
       </textarea>
       </div>

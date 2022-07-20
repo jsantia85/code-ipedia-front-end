@@ -1,13 +1,14 @@
 import AddComment from '../../components/AddComments/AddComments'
 import style from './PostDetails.module.css'
 
-function CommentsList (props) {
-
+function CommentsList(props){
+console.log('this is props', props.posts)
 
   return (
     <>
-    <div className= {style.container}>
       <p>it works</p>
+      <div className= {style.container}>
+      
       </div>
     </>
   )

@@ -13,7 +13,7 @@ import AddPost from './pages/AddPost/AddPost'
 import EditPost from './pages/EditPost/EditPost'
 import * as postService from './services/postService'
 import CodeList from './pages/CodeList/CodeList'
-// import AddComment from './components/AddComments/AddComments'
+import AddComment from './components/AddComments/AddComments'
 import * as authService from './services/authService'
 import ProfilePage from './ProfilePage/ProfilePage'
 import DisplayCodes from './pages/CodeList/DisplayCodes'
@@ -52,9 +52,9 @@ const App = () => {
     return await postService.addPhoto(photoData, id)
   }
   
-  const handleAddComment = async newCommentData => {
-    const newComment = await postService.create(newCommentData)
-    setComments([...comments, newCommentData])
+  const handleAddComment = async (newCommentData, id) => {
+    const newComment = await postService.createComment(newCommentData, id)
+    setComments([...comments, newComment])
   }
 
 
@@ -138,21 +138,26 @@ const App = () => {
           <Route 
             path='/edit' 
             element={<EditPost user={user} handleUpdatePost={handleUpdatePost}/>}/>
-          {/* <Route 
+          <Route 
             path='/addComment' 
-            element={<AddComment handleAddComment={handleAddComment}/>}/> */}
+            element={<AddComment handleAddComment={handleAddComment}/>}/>
           <Route
             path="/:profileId"
             element={
               user ? 
                 <ProfilePage profiles={profiles} posts={posts} user={user}/> : 
                 <Navigate to="/login" />}/>
-          <Route 
+          {/* <Route 
+            path="/index/:postId"
+            element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/> */}
+            {/* <Route 
+            path="/index/:postId"
+            element={<CommentsList posts={posts} handleAddComment={handleAddComment} />} */}
+            <Route 
             path="/index/:postId"
             element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/>
-          <Route 
-          path ='/index/:postId'
-          element={<CommentsList profiles={profiles} posts={posts} user={user} comments={comments} handleAddComment={handleAddComment}/>}/>
+            
+          
       </Routes>
       </main>
     </div>

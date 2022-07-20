@@ -41,8 +41,9 @@ async function update(post) {
   return res.json()
 }
 
-async function createComment(comment) {
-  const res = await fetch({BASE_URL}, {
+async function createComment(comment, id) {
+  console.log(comment)
+  const res = await fetch(`${BASE_URL}/${id}`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,

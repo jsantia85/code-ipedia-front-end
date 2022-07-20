@@ -10,7 +10,7 @@ function PostDetails (props) {
   console.log('THIS IS PROPS', props)
   const location = useLocation()
   const post = location.state
-  console.log('THIS IS POST IN POSTDETAILS', post)
+  // console.log('THIS IS POST IN POSTDETAILS', post)
   return (
     <>
     <h1>Post Details</h1>
@@ -42,15 +42,27 @@ function PostDetails (props) {
         }
         <section>
             <div className="add-comment">
-          <h5>Say something nice.</h5>
+          <h5>Say Something Nice.</h5>
           <AddComment
             key={post._id}
             user={props.user}
-            author={post.author.name} 
-            handleAddComment={props.handleAddComment}/>
+            author={post.author} 
+            handleAddComment={props.handleAddComment}
+            postId={post._id}/>
           </div>
         </section>
-          <CommentsList />
+
+          <div>
+            <CommentsList 
+            key={post._id}
+            user={props.user}
+            author={post.author} 
+            handleAddComment={props.handleAddComment}
+            postId={post._id}
+            
+            />
+            
+          </div>
     </>
   )
 }
