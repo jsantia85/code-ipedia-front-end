@@ -11,9 +11,8 @@ function EditPost(props) {
 	const location = useLocation()
 	const [code, setCode] = useState('')
 	const initialState = {
-		title: location.state.post.title,
-		code: location.state.post.code,
-		category: location.state.post.category.category
+		...location.state.post,
+		category: location.state.post.category[0].category
 	}
   const [formData, setFormData] = useState(initialState)
   const [validForm, setValidForm] = useState(false)
@@ -30,13 +29,16 @@ function EditPost(props) {
   const handleSubmit = evt => {
     evt.preventDefault()
 	const form = {
-		title: formData.title,
-		code: formData.code,
+		...formData, 
 		category: {category: formData.category}
 	}
     props.handleUpdatePost(form)
   }
   
+	console.log('THIS IS FORMDATA', formData)
+
+	console.log('THIS IS INITIALSTATE', initialState)
+
 	return (
     // <h1>edit Post</h1>
 		<>
@@ -76,16 +78,6 @@ function EditPost(props) {
 					<label htmlFor="code-input" className="form-label">
 						Code (required)
 					</label>
-					{/* <input 
-						type="text"
-						className="form-control"
-						id="code-input"
-						name="code"
-            value={formData.code}
-            onChange={handleChange}
-            placeholder="console.log('Sanity')"
-            required
-					/> */}
 					<Editor
 						value={formData.code}
 						name="code"

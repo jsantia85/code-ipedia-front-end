@@ -31,7 +31,6 @@ function PostDetails (props) {
         user={props.user}
         />
       </div>
-
         {props.user?.profile === post.author?._id &&
           <div className="">
             <Link

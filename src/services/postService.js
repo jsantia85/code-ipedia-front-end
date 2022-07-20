@@ -30,6 +30,7 @@ async function addPhoto(photoData, postId) {
 }
 
 async function update(post) {
+  console.log('THIS IS POSTTTTTT', post)
   const res = await fetch(`${BASE_URL}/${post._id}`, {
     method: 'PUT',
     headers: {
