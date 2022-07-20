@@ -41,16 +41,17 @@ async function update(post) {
   return res.json()
 }
 
-async function createComment (comment) {
-  const res = await fetch(BASE_URL, {
+async function createComment(comment, id) {
+  console.log(comment)
+  const res = await fetch(`${BASE_URL}/${id}`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${tokenService.getToken()}`
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(comment)
   })
-	return res.json()
+	return await res.json()
 }
 
 async function deleteOne(id) {

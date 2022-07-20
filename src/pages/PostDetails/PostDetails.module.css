@@ -11,7 +11,18 @@ h5 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 90px;
+  margin-top:10px;
 
 }
 
+section {
+  border: 3px solid black;
+  margin: 40px;
+  padding-left: 200px;
+  padding-right: 200px;
+  background-color: antiquewhite;
+}
+
+#add-comment {
+  margin-bottom: 40px;
+}

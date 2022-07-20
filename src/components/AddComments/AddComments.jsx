@@ -1,11 +1,15 @@
 import { useState, useRef, useEffect } from 'react'
+// import { CommentsList } from '../../pages/PostDetails/CommentsList'
 import './AddComments.css'
-
+import * as postService from '../../services/postService'
+// import { CommentsList } from '../CommentsList/CommentsList'
+// import { Link } from 'react-router-dom'
+// import styles from "./Index.module.css";
 
 function AddComment(props) {
+  console.log(props.user)
   const [formData, setFormData]= useState({
     comments: '',
-    author: '',
   })
   
   const [validForm, setValidForm] = useState(false)
@@ -13,12 +17,19 @@ function AddComment(props) {
 
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
+    console.log(formData)
   }
   
   const handleSubmit = evt => {
     evt.preventDefault()
-    props.handleAddComment(formData)
+    const form = {
+      comments: formData.comments,
+    }
+    console.log('this is props', props.handleAddComment)
+    console.log(form)
+    postService.createComment(form, props.postId)
   }
+  console.log(props)
   // console.log('it wokr')
   
 
@@ -30,20 +41,7 @@ function AddComment(props) {
 
   return (
     <>
-    
-    <div>
-      
-    </div>
-    			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
-    <div>
-      <label>User: </label>
-    <input 
-						type="text"
-						id="author-input"
-						name="author"
-						required
-					/>
-      </div>
+    <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
       <div>
       <textarea 
         type="text"
@@ -52,10 +50,11 @@ function AddComment(props) {
         onChange={handleChange}
         rows="5"
         cols="33"
-      >
+        
+        >
       </textarea>
       </div>
-      <div>
+      
         <button
         type="submit"
 	      className="btn btn-primary btn-fluid"
@@ -63,7 +62,6 @@ function AddComment(props) {
         disabled={!validForm}> 
         Add Comment
 		    </button>
-      </div>
   </form>
   </>
   )
