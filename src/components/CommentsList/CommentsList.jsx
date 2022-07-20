@@ -13,7 +13,7 @@ function CommentsList(props){
       {location.state.comments.map(comment => 
       // console.log('this is comment', comment.comments)
 
-      <li key={comment._id}>{props.post.author.name} said {comment.comments}</li>
+      <p key={comment._id}>{props.post.author.name} said {comment.comments}</p>
       )}
       
 
