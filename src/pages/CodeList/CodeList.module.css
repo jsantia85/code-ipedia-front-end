@@ -44,3 +44,32 @@
   .categoryName {
     font-weight: bold;
   }
+
+  #code-section{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #283434;
+    /* border: 2px solid #283434; */
+    border-radius: 10px;
+    background-color: #F4F3EF;
+    padding: 5%;
+  }
+
+  h1{
+    text-align: center;
+    margin-bottom: 3vmin
+  }
+
+  .codeList{
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .selectBox{
+    margin-bottom: 3vmin;
+  }
