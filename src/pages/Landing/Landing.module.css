@@ -2,12 +2,48 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  grid-column-gap: 0px;
+  grid-column-gap: 20px;
   grid-row-gap: 0px;
-  }
+}
 
-.img {
+.image {
   position: fixed;
-  left: 0;
   align-items: left;
+  height: auto;
+  max-width: 50%;
+}
+
+img {
+  max-width: 15vh;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  margin: 5% 0;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #283434;
+}
+
+
+#login-btn{
+  background-color: #D7E4E9;
+  color: #283434;
+  padding: 5% 25%;
+  text-align: center;
+  margin: 10% 0;
+}
+
+#signup-btn{
+  background-color: #E5A6A6;
+  color: #283434;
+  padding: 5% 15%;
+  margin: 10% 0;
+  height: auto;
+  text-align: center;
+  width: 100px;
 }
