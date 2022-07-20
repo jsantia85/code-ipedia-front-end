@@ -12,7 +12,8 @@ function CommentsList(props){
     <>
       {location.state.comments.map(comment => 
       // console.log('this is comment', comment.comments)
-      <p>{comment.comments}</p>
+
+      <li key={comment._id}>{props.post.author.name} said {comment.comments}</li>
       )}
       
 
