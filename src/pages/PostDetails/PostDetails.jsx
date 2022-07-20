@@ -3,7 +3,7 @@ import CodeCard from "../../components/CodeCard/CodeCard"
 import {useLocation} from 'react-router-dom'
 import AddComment from "../../components/AddComments/AddComments"
 import style from './PostDetails.module.css'
-import { CommentsList } from "./CommentsList"
+import { CommentsList } from "../../components/CommentsList/CommentsList"
 import { Link, NavLink } from "react-router-dom"
 
 function PostDetails (props) {
@@ -53,7 +53,7 @@ function PostDetails (props) {
         </section>
 
           <div>
-            <CommentsList 
+          <CommentsList 
             key={post._id}
             user={props.user}
             author={post.author} 

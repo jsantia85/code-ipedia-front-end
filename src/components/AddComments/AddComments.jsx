@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 // import { CommentsList } from '../../pages/PostDetails/CommentsList'
 import './AddComments.css'
 import * as postService from '../../services/postService'
-import { CommentsList } from '../../pages/PostDetails/CommentsList'
+// import { CommentsList } from '../CommentsList/CommentsList'
 // import { Link } from 'react-router-dom'
 // import styles from "./Index.module.css";
 
