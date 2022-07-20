@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import logo from './Vector.png'
 import { NavLink } from 'react-router-dom'
 
 const NavBar = ({ user, handleLogout }) => {
@@ -7,6 +8,7 @@ const NavBar = ({ user, handleLogout }) => {
     <header className="App-header">
       {user ?
         <nav>
+            <img src={logo} alt='logo' id='image' ></img>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/profiles">Profiles</NavLink>
             <NavLink to="/index">Index</NavLink>
