@@ -15,14 +15,13 @@ h5 {
 
 }
 
-section {
+
+
+#add-comment {
   border: 3px solid black;
   margin: 40px;
   padding-left: 200px;
   padding-right: 200px;
   background-color: antiquewhite;
-}
-
-#add-comment {
   margin-bottom: 40px;
 }

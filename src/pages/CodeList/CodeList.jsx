@@ -1,4 +1,4 @@
-import styles from './codeList.css'
+import styles from './CodeList.module.css'
 import { useState } from 'react'
 
 import DisplayCodes from './DisplayCodes'

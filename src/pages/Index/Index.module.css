@@ -15,15 +15,17 @@
 
 .text {
   text-decoration: none;
+  /* background-color: #283434; */
 }
 
-.card {
+.codeCard {
   display: flex;
   width: 300px;
-  background-color: #283434;
+  /* background-color: #283434; */
   border-radius: 10px;
   color: whitesmoke;
   padding: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .card > img {
@@ -32,7 +34,6 @@
 }
 
 .cardBody {
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -44,4 +45,8 @@
 
 a:hover {
   background-color: #D7E4E9;
+}
+
+h1{
+  /* margin-top: 5%; */
 }
