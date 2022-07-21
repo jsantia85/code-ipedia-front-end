@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import './AddComments.css'
+import styles from './AddComments.module.css'
 
 
 function AddComment(props) {
@@ -44,11 +44,9 @@ function AddComment(props) {
         onChange={handleChange}
         rows="5"
         cols="33"
-        
         >
       </textarea>
       </div>
-      
         <button
         type="submit"
 	      className="btn btn-primary btn-fluid"
@@ -56,7 +54,6 @@ function AddComment(props) {
         disabled={!validForm}> 
         Add Comment
   </button>
-
   </form>
   </>
   )

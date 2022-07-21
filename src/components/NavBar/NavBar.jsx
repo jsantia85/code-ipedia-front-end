@@ -12,11 +12,9 @@ const NavBar = ({ user, handleLogout }) => {
             <img src={logo} alt='logo' id='image' ></img>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/profiles">Profiles</NavLink>
-            <NavLink to="/index">Index</NavLink>
+            <NavLink to="/index">Posts</NavLink>
             <NavLink to="/addPost">Add Post</NavLink>
             <NavLink to="/codeList">Code</NavLink>
-            <Link to="" onClick={handleLogout}>LOG OUT</Link>
-            <NavLink to="/changePassword">Change Password</NavLink>
             <div className={styles.dropdown}>
               <p className={styles.dropbtn}>Account</p>
               <div className={styles.dropdownContent}>

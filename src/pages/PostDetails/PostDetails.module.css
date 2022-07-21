@@ -12,9 +12,11 @@ h5 {
   flex-wrap: wrap;
   justify-content: center;
   margin-top:10px;
-
 }
 
+h3{
+  margin: 15px;
+}
 
 
 #add-comment {
@@ -25,3 +27,30 @@ h5 {
   background-color: antiquewhite;
   margin-bottom: 40px;
 }
+
+.editBtn{
+  color: #283434;
+  background-color: #D7E4E9;
+  padding: 4px 20px;
+  border-radius: 10px;
+}
+
+.editBtn:hover{
+  background-color: #E5A6A6;
+  color: #283434;
+}
+
+.deleteBtn{
+  color: #283434;
+  background-color: #E5A6A6;
+  padding: 4px 20px;
+  border-radius: 10px;
+  border: none;
+}
+
+.deleteBtn:hover{
+  background-color: #D7E4E9;
+  color: #283434;
+}
+
+

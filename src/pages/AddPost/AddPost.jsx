@@ -1,3 +1,4 @@
+import styles from './AddPost.module.css'
 import { useState, useRef, useEffect } from "react"
 import Editor from "react-simple-code-editor"
 import { highlight, languages } from "prismjs/components/prism-core";
@@ -99,13 +100,15 @@ function AddPost(props) {
 							border: "1px solid #ddd",
 							borderRadius: "4px",
 							fontSize: 16,
-						}}/>
+						}}
+						required
+						/>
 				</div>
 				<div className="d-grid">
 					<button
 						type="submit"
-						className="btn btn-primary btn-fluid"
-           				disabled={!validForm}
+						className={styles.submitBtn}
+          	disabled={!validForm}
 					>
 						Add Post
 					</button>

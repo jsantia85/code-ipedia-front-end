@@ -6,11 +6,31 @@
   margin-bottom: 50px;
 }
 
+
 .label,
 .button {
   margin-right: .5rem;
 }
 
+.signupBtn{
+  color: #283434;
+  background-color: #E5A6A6;
+  border-radius: 10px;
+}
+
+.signupBtn:hover{
+  background-color: #D7E4E9;
+}
+
 .inputContainer {
   margin-bottom: 1rem;
+}
+
+.cancelBtn{
+  border-radius: 10px;
+  background-color: #E5A6A6;
+}
+
+.cancelBtn:hover{
+  background-color: #D7E4E9
 }
