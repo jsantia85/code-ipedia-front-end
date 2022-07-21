@@ -29,7 +29,7 @@ function PostDetails (props) {
           title={post.title}
           author={post.author.name}
           user={props.user}
-          />
+        />
         </div>
           {props.user?.profile === post.author?._id &&
             <div className="">
