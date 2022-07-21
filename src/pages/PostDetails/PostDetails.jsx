@@ -26,6 +26,13 @@ function PostDetails (props) {
     <>
     <h1>Post Details</h1>
     
+    <CodeCard 
+      key={post._id}
+      post={post}
+      title={post.title}
+      author={post.author.name}
+      user={props.user}
+      />
         {props.user?.profile === post.author?._id &&
           <div className="">
             <Link
@@ -43,13 +50,6 @@ function PostDetails (props) {
           </div>
           }
         <section>
-        <CodeCard 
-          key={post._id}
-          post={post}
-          title={post.title}
-          author={post.author.name}
-          user={props.user}
-          />
             <div className="add-comment">
           <h5>Say Something Nice.</h5>
           <AddComment
@@ -62,8 +62,6 @@ function PostDetails (props) {
             />
           </div>
         </section>
-
-        
         { post.comments?.length &&
           <CommentsList 
             key={post._id}
@@ -71,12 +69,8 @@ function PostDetails (props) {
             author={post.author} 
             postId={post._id}
             comments = {post.comments}
-
           />
         }
-          <div>
-          
-          </div>
     </>
   )
 }
