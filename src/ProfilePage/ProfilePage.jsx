@@ -16,7 +16,7 @@ const ProfilePage = (props) => {
       <h1>Welcome to {location.state.profile.name}'s Profile Page!</h1>
       <div className={styles.container}>
         {postsBelongingToOwner.map(post =>
-          <Link to={`/index/${post._id}`} key={post._id} className={styles.text} state={post}>
+          <Link to={`/index/${post._id}`} key={post._id} className={styles.text} state={{post}}>
             <CodeCard 
               key={post._id}
               post={post}
