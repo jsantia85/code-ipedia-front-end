@@ -4,6 +4,7 @@ import CodeCard from "../../components/CodeCard/CodeCard";
 import { Link } from "react-router-dom";
 
 const Index = (props) => {
+  
   console.log(props.posts)
   return (
     <>

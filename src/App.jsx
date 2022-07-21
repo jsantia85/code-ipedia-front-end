@@ -19,7 +19,7 @@ import ProfilePage from './ProfilePage/ProfilePage'
 import DisplayCodes from './pages/CodeList/DisplayCodes'
 import * as profileService from './services/profileService'
 import { PostDetails}   from './pages/PostDetails/PostDetails'
-import { CommentsList } from './components/CommentsList/CommentsList'
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [posts, setPosts] = useState([])
@@ -122,7 +122,7 @@ const App = () => {
           <Route
             path="/index"
             element={user ? 
-              <Index posts={posts} user={user} handleDeletePost={handleDeletePost}/> : 
+              <Index posts={posts} user={user} handleDeletePost={handleDeletePost} /> : 
               <Navigate to="/login" />}
           />
           <Route 
@@ -146,15 +146,9 @@ const App = () => {
               user ? 
                 <ProfilePage profiles={profiles} posts={posts} user={user}/> : 
                 <Navigate to="/login" />}/>
-          {/* <Route 
-            path="/index/:postId"
-            element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/> */}
-            {/* <Route 
-            path="/index/:postId"
-            element={<CommentsList posts={posts} handleAddComment={handleAddComment} />} */}
             <Route 
-            path="/index/:postId"
-            element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/>
+              path="/index/:postId"
+              element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} comments={comments} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/>
             
           
       </Routes>

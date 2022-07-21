@@ -1,19 +1,12 @@
-// import AddComment from '../../components/AddComments/AddComments'
-// import AddComment from "../AddComments/AddComments"
-import {useLocation} from 'react-router-dom'
-
 function CommentsList(props){
-  console.log('this is props', props.posts)
-  const location = useLocation()
-
-  console.log('this is location', location)
 
   return (
     <>
-      {location.state.comments.map(comment => 
-      // console.log('this is comment', comment.comments)
-
-      <p key={comment._id}>{props.post.author.name} said {comment.comments}</p>
+      {props.comments.map(comment => 
+      <div>
+      <p key={comment._id}>
+      {comment.comments}</p>
+      </div>
       )}
       
 
