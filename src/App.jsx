@@ -18,7 +18,6 @@ import ProfilePage from './ProfilePage/ProfilePage'
 import DisplayCodes from './pages/CodeList/DisplayCodes'
 import * as profileService from './services/profileService'
 import { PostDetails}   from './pages/PostDetails/PostDetails'
-import { CommentsList } from './components/CommentsList/CommentsList'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -43,8 +42,10 @@ const App = () => {
   }
   
   const handleAddComment = async (newCommentData, id) => {
-    const newComment = await postService.createComment(newCommentData, id)
-    setComments([...comments, newComment])
+    const updatedPost = await postService.createComment(newCommentData, id)
+    const newPostArray = posts.map(post => post._id === updatedPost._id ? updatedPost : post)
+    setPosts(newPostArray)
+
   }
 
 
@@ -112,10 +113,9 @@ const App = () => {
               }/>
           <Route
             path="/index"
-              element={user ? 
-                <Index posts={posts} user={user} handleDeletePost={handleDeletePost}/> : 
-                <Navigate to="/login" />}
-          />
+            element={user ? 
+              <Index posts={posts} user={user} handleDeletePost={handleDeletePost} /> : 
+              <Navigate to="/login" />}/>
           <Route 
             path="/displayCodes" 
             element={<DisplayCodes />}/>
@@ -139,10 +139,10 @@ const App = () => {
                 <Navigate to="/login" />}/>
             <Route 
               path="/index/:postId"
-                element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/>
-        </Routes>
-        </main>
-      </div>
+              element={<PostDetails profiles={profiles} user={user} posts={posts} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/>
+      </Routes>
+      </main>
+    </div>
     </>
   )
 }

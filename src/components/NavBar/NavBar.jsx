@@ -15,6 +15,8 @@ const NavBar = ({ user, handleLogout }) => {
             <NavLink to="/index">Index</NavLink>
             <NavLink to="/addPost">Add Post</NavLink>
             <NavLink to="/codeList">Code</NavLink>
+            <Link to="" onClick={handleLogout}>LOG OUT</Link>
+            <NavLink to="/changePassword">Change Password</NavLink>
             <div className={styles.dropdown}>
               <p className={styles.dropbtn}>Account</p>
               <div className={styles.dropdownContent}>
