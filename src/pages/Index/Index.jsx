@@ -14,6 +14,7 @@ const Index = (props) => {
         <Link to={`/index/${post._id}`} key={post._id} className={styles.text} state={post}>
           {
           <CodeCard 
+            className={styles.codeCard}
             key={post._id}
             post={post}
             title={post.title}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import logo from './Vector.png'
+import styles from './NavBar.module.css'
 import { NavLink } from 'react-router-dom'
 
 const NavBar = ({ user, handleLogout }) => {
@@ -16,6 +17,14 @@ const NavBar = ({ user, handleLogout }) => {
             <NavLink to="/codeList">Code</NavLink>
             <Link to="" onClick={handleLogout}>LOG OUT</Link>
             <NavLink to="/changePassword">Change Password</NavLink>
+            <div className={styles.dropdown}>
+              <p className={styles.dropbtn}>Account</p>
+              <div className={styles.dropdownContent}>
+                <Link to="" onClick={handleLogout}>LOG OUT</Link>
+                <NavLink to="/changePassword">Change Password</NavLink>
+              </div>
+            </div>
+            {/* <Link to='/addComment'>Add Comment</Link> */}
         </nav>
       :
         <></> 
