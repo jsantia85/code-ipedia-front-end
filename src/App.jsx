@@ -2,7 +2,6 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
-// import { NavLink } from 'react-router-dom'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
@@ -39,17 +38,8 @@ const App = () => {
   
   const handleAddPost = async (newPostData) => {
     const newPost = await postService.create(newPostData)
-    // if (photo) {
-    //   newPost.photo = await postPhotoHelper(photo, newPost._id)
-    // }
     setPosts([...posts, newPost])
     navigate('/index')
-  }
-  
-  const postPhotoHelper = async (photo, id) => {
-    const photoData = new FormData()
-    photoData.append('photo', photo)
-    return await postService.addPhoto(photoData, id)
   }
   
   const handleAddComment = async (newCommentData, id) => {
@@ -95,69 +85,62 @@ const App = () => {
       <div className='App'>
         <NavBar user={user} handleLogout={handleLogout} />
         <main>
-          <Routes>
-            <Route 
-              path="/" 
+        <Routes>
+          <Route 
+            path="/" 
               element={<Landing user={user} />} />
-            <Route 
-              path="/signup" 
-              element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}/>
-            <Route 
-              path="/login" 
-              element={<Login handleSignupOrLogin={handleSignupOrLogin} />}/>
-            <Route 
-              path="/profiles" 
+          <Route 
+            path="/signup" 
+            element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}/>
+          <Route 
+            path="/login" 
+            element={<Login handleSignupOrLogin={handleSignupOrLogin} />}/>
+          <Route 
+            path="/profiles" 
               element={
                 user ? 
-                <Profiles profiles={profiles} posts={posts}/> : 
+                  <Profiles profiles={profiles} posts={posts}/> : 
+                  <Navigate to="/login" />}/>
+          <Route
+            path="/changePassword"
+            element={
+              user ? (
+                <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
+              ) : (
+                <Navigate to="/login" />
+                )
+              }/>
+          <Route
+            path="/index"
+              element={user ? 
+                <Index posts={posts} user={user} handleDeletePost={handleDeletePost}/> : 
+                <Navigate to="/login" />}
+          />
+          <Route 
+            path="/displayCodes" 
+            element={<DisplayCodes />}/>
+          <Route 
+            path="/addPost" 
+            element={<AddPost handleAddPost={handleAddPost} />}/>
+          <Route 
+            path="/codeList" 
+            element={<CodeList posts={posts} />}/>
+          <Route 
+            path='/edit' 
+            element={<EditPost user={user} handleUpdatePost={handleUpdatePost}/>}/>
+          <Route 
+            path='/addComment' 
+            element={<AddComment handleAddComment={handleAddComment}/>}/>
+          <Route
+            path="/:profileId"
+            element={
+              user ? 
+                <ProfilePage profiles={profiles} posts={posts} user={user}/> : 
                 <Navigate to="/login" />}/>
-            <Route
-              path="/changePassword"
-              element={
-                user ? (
-                  <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
-                  ) : (
-                    <Navigate to="/login" />
-                    )
-                  }/>
-            
-              <Route
-                path="/index"
-                element={user ? 
-                  <Index posts={posts} user={user} handleDeletePost={handleDeletePost}/> : 
-                  <Navigate to="/login" />}
-              />
-              <Route 
-                path="/displayCodes" 
-                element={<DisplayCodes />}/>
-              <Route 
-                path="/addPost" 
-                element={<AddPost handleAddPost={handleAddPost} />}/>
-              <Route 
-                path="/codeList" 
-                element={<CodeList posts={posts} />}/>
-              <Route 
-                path='/edit' 
-                element={<EditPost user={user} handleUpdatePost={handleUpdatePost}/>}/>
-              <Route 
-                path='/addComment' 
-                element={<AddComment handleAddComment={handleAddComment}/>}/>
-              <Route
-                path="/:profileId"
-                element={
-                  user ? 
-                    <ProfilePage profiles={profiles} posts={posts} user={user}/> : 
-                    <Navigate to="/login" />}/>
-              {/* <Route 
-                path="/index/:postId"
-                element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/> */}
-                {/* <Route 
-                path="/index/:postId"
-                element={<CommentsList posts={posts} handleAddComment={handleAddComment} />} */}
-                <Route 
-                  path="/index/:postId"
-                  element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/> 
-          </Routes>
+            <Route 
+              path="/index/:postId"
+                element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/>
+        </Routes>
         </main>
       </div>
     </>
