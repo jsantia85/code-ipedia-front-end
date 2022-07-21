@@ -21,44 +21,43 @@ function PostDetails (props) {
 
   return (
     <>
-    <h1>Post Details</h1>
-    <div className= {style.container}>
-      <CodeCard 
-        key={post._id}
-        post={post}
-        title={post.title}
-        author={post.author.name}
-        user={props.user}
-        />
-      </div>
-        {props.user?.profile === post.author?._id &&
-          <div className="">
-            <Link
-              state={{post}}
-              to="/edit"
-              className='btn btn-sm btn-primary'
-              >
-              Edit
-            </Link>
-            <NavLink to="/index">
-              <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePost(post._id)}>
-                Delete
-              </button>
-            </NavLink>
-          </div>
-        }
-        <section>
-            <div className="add-comment">
-          <h5>Say Something Nice.</h5>
-          <AddComment
-            key={post._id}
-            user={props.user}
-            author={post.author} 
-            handleAddComment={props.handleAddComment}
-            postId={post._id}/>
-          </div>
-        </section>
-
+      <h1>Post Details</h1>
+      <div className= {style.container}>
+        <CodeCard 
+          key={post._id}
+          post={post}
+          title={post.title}
+          author={post.author.name}
+          user={props.user}
+          />
+        </div>
+          {props.user?.profile === post.author?._id &&
+            <div className="">
+              <Link
+                state={{post}}
+                to="/edit"
+                className='btn btn-sm btn-primary'
+                >
+                Edit
+              </Link>
+              <NavLink to="/index">
+                <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePost(post._id)}>
+                  Delete
+                </button>
+              </NavLink>
+            </div>
+          }
+          <section>
+              <div className="add-comment">
+            <h5>Say Something Nice.</h5>
+            <AddComment
+              key={post._id}
+              user={props.user}
+              author={post.author} 
+              handleAddComment={props.handleAddComment}
+              postId={post._id}/>
+            </div>
+          </section>
         {commentsToPost.map(post => 
           <CommentsList 
             key={post._id}
@@ -68,9 +67,8 @@ function PostDetails (props) {
             post={post}
             />
           )}
-          <div>
-            
-          </div>
+        <div> 
+      </div>
     </>
   )
 }

@@ -1,7 +1,7 @@
 .main {
   display: flex;
   justify-content: center;
-  align-content: start;
+  align-content: flex-start;
 }
 
 
@@ -35,6 +35,8 @@
   flex: 0 0 auto;
 }
 
+
+
 .card > img {
   border-radius: 10px;
   height: 96px;
@@ -47,13 +49,32 @@
 
 .cardTitle {
   font-size: 24px;
+  color: #283434;
   margin: 0 10px;
 }
 
-a:hover {
-  background-color: #D7E4E9;
-}
 
 h1{
   /* margin-top: 5%; */
+}
+
+.cardDiv::before {  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.cardDiv:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.cardDiv::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: #283434;
+  z-index: -1;
+  transition: transform .3s ease;
 }

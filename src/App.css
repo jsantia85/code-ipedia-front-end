@@ -27,7 +27,7 @@ nav > a {
   flex-flow: column nowrap;
   /* justify-content: space-around; */
   align-items: center;
-  align-content: start;
+  align-content: flex-start;
 }
 
 nav > a:hover {
