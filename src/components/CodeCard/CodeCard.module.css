@@ -4,8 +4,8 @@
 }
 
 .container {
-  /* display: flex; */
-  justify-content: center;
+  display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
   margin: 20px;
@@ -18,17 +18,14 @@
 
 .card {
   /* display: flex; */
-  width: 300px;
+  /* width: 300px; */
   /* background-color: #283434; */
+  flex: 0 1 24%;
   border-radius: 10px;
   color: whitesmoke;
   padding: 10px;
 }
 
-.card > img {
-  border-radius: 10px;
-  height: 96px;
-}
 
 .cardBody {
   /* display: flex; */
@@ -38,6 +35,16 @@
   padding: 5px;
   text-align: center;
   align-items: center;
+}
+
+.cardCode{
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 400;
+}
+
+.cardFooter{
+  padding: 0;
+  margin-top: 8%;
 }
 
 .cardTitle {

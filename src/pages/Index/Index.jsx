@@ -8,7 +8,7 @@ const Index = (props) => {
   return (
     <>
       <h1>Posts</h1>
-      <div className={styles.container}>
+      <div className={styles.cardContainer}>
         {props.posts.map(post =>
         <Link to={`/index/${post._id}`} key={post._id} className={styles.text} state={post}>
           {
