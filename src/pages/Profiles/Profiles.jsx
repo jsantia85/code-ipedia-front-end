@@ -8,26 +8,26 @@ const Profiles = (props) => {
       <h1>A-Code-Lytes</h1>
         <div>
           <div className={styles.container}>
-          {props.profiles.length ? 
-            <>
-              {props.profiles.map(profile =>
-                <Link to={`/${profile._id}`} className={styles.text} key={profile._id} state={{profile: profile}}>
-                  <div className={styles.card}>
-                    <img src={profile.photo} alt="" />
-                    <div className={styles.cardBody}>
-                      <h3 className={styles.cardTitle}>
-                        {profile.name}
-                      </h3>
+            {props.profiles.length ? 
+              <>
+                {props.profiles.map(profile =>
+                  <Link to={`/${profile._id}`} className={styles.text} key={profile._id} state={{profile: profile}}>
+                    <div className={styles.card}>
+                      <img src={profile.photo} alt="" />
+                      <div className={styles.cardBody}>
+                        <h3 className={styles.cardTitle}>
+                          {profile.name}
+                        </h3>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              )}
-            </>
-          :
-            <p>No profiles yet</p>
-          }
+                  </Link>
+                )}
+              </>
+              :
+                <p>No profiles yet</p>
+            }
+          </div>
         </div>
-      </div>
     </>
   )
 }
