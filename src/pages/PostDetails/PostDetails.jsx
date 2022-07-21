@@ -9,37 +9,29 @@ import { useEffect, useState} from "react"
 
 
 function PostDetails (props) {
-  const [comments, setComments] = useState([])
   
-  // console.log('THIS IS PROPS', props)
   const location = useLocation()
+  const [comments, setComments] = useState([])
+  const [post, setPost] = useState(location.state.post)
+  // console.log('THIS IS PROPS', props)
   const {postId} = useParams()
   // console.log('post id', postId)
-  const post = location.state
+  // const post = location.state.post
   // console.log('THIS IS POST IN POSTDETAILS', post)
   
-  const commentsToPost = props.posts.filter((post) =>
-  post._id === postId 
-  )
-  useEffect(()=> {
-    setComments([...location.state.comments, props.comments])
-  }, [location.state.comments])
-  console.log('******************', comments)
+  
+  
+  // useEffect(()=> {
+  //   setComments([location.state.post.comments])
+  // }, [location.state.post])
+  // console.log('******************', comments)
   // console.log('this is commentsToPost', commentsToPost)
   // console.log(commentsToPost[0]?.comments)
   return (
     <>
     <h1>Post Details</h1>
-    <div className= {style.container}>
-      <CodeCard 
-        key={post._id}
-        post={post}
-        title={post.title}
-        author={post.author.name}
-        user={props.user}
-        />
-      </div>
-        {props.user?.profile === post.author?._id &&
+    
+        {/* {props.user?.profile === post.author?._id && */}
           <div className="">
             <Link
               state={{post}}
@@ -54,7 +46,7 @@ function PostDetails (props) {
               </button>
             </NavLink>
           </div>
-        }
+        {/* } */}
         <section>
             <div className="add-comment">
           <h5>Say Something Nice.</h5>
@@ -63,22 +55,23 @@ function PostDetails (props) {
             user={props.user}
             author={post.author} 
             handleAddComment={props.handleAddComment}
-            comments={comments}
             setComments={setComments}
             postId={post._id}
             />
           </div>
         </section>
 
-        {commentsToPost.map(post => 
+        
+        { post.comments?.length &&
           <CommentsList 
             key={post._id}
             user={props.user}
             author={post.author} 
             postId={post._id}
-            comments = {comments}
-            />
-          )}
+            comments = {post.comments}
+
+          />
+        }
           <div>
           
           </div>

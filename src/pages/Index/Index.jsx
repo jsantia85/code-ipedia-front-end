@@ -11,7 +11,7 @@ const Index = (props) => {
       <h1>Posts</h1>
       <div className={styles.container}>
         {props.posts.map(post =>
-        <Link to={`/index/${post._id}`} key={post._id} className={styles.text} state={post}>
+        <Link to={`/index/${post._id}`} key={post._id} className={styles.text} state={{post}}>
           {
           <CodeCard 
             className={styles.codeCard}

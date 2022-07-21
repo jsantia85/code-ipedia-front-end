@@ -148,7 +148,7 @@ const App = () => {
                 <Navigate to="/login" />}/>
             <Route 
               path="/index/:postId"
-              element={<PostDetails profiles={profiles} posts={posts} user={user} handleAddComment={handleAddComment} comments={comments} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/>
+              element={<PostDetails profiles={profiles} user={user} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/>
             
           
       </Routes>
