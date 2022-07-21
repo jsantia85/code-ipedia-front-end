@@ -2,7 +2,6 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
-// import { NavLink } from 'react-router-dom'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
@@ -38,17 +37,8 @@ const App = () => {
   
   const handleAddPost = async (newPostData) => {
     const newPost = await postService.create(newPostData)
-    // if (photo) {
-    //   newPost.photo = await postPhotoHelper(photo, newPost._id)
-    // }
     setPosts([...posts, newPost])
     navigate('/index')
-  }
-  
-  const postPhotoHelper = async (photo, id) => {
-    const photoData = new FormData()
-    photoData.append('photo', photo)
-    return await postService.addPhoto(photoData, id)
   }
   
   const handleAddComment = async (newCommentData, id) => {
@@ -81,6 +71,7 @@ const App = () => {
     const updatedPost = await postService.update(updatedPostData)
     const newPostsArray = posts.map(post =>
       post._id === updatedPost._id ? updatedPost : post)
+
     setPosts(newPostsArray)
     navigate('/index')
   }
@@ -92,41 +83,39 @@ const App = () => {
 
   return (
     <>
-    <div className='App'>
-      <NavBar user={user} handleLogout={handleLogout} />
-      <main>
-      <Routes>
-        <Route 
-          path="/" 
-          element={<Landing user={user} />} />
-        <Route 
-          path="/signup" 
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}/>
-        <Route 
-          path="/login" 
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}/>
-        <Route 
-          path="/profiles" 
+      <div className='App'>
+        <NavBar user={user} handleLogout={handleLogout} />
+        <main>
+        <Routes>
+          <Route 
+            path="/" 
+              element={<Landing user={user} />} />
+          <Route 
+            path="/signup" 
+            element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}/>
+          <Route 
+            path="/login" 
+            element={<Login handleSignupOrLogin={handleSignupOrLogin} />}/>
+          <Route 
+            path="/profiles" 
+              element={
+                user ? 
+                  <Profiles profiles={profiles} posts={posts}/> : 
+                  <Navigate to="/login" />}/>
+          <Route
+            path="/changePassword"
             element={
-              user ? 
-                <Profiles profiles={profiles} posts={posts}/> : 
-                <Navigate to="/login" />}/>
-        <Route
-          path="/changePassword"
-          element={
-            user ? (
-              <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
+              user ? (
+                <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
               ) : (
                 <Navigate to="/login" />
                 )
               }/>
-        
           <Route
             path="/index"
             element={user ? 
               <Index posts={posts} user={user} handleDeletePost={handleDeletePost} /> : 
-              <Navigate to="/login" />}
-          />
+              <Navigate to="/login" />}/>
           <Route 
             path="/displayCodes" 
             element={<DisplayCodes />}/>
@@ -151,8 +140,6 @@ const App = () => {
             <Route 
               path="/index/:postId"
               element={<PostDetails profiles={profiles} user={user} posts={posts} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/>
-            
-          
       </Routes>
       </main>
     </div>

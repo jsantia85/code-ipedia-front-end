@@ -25,8 +25,9 @@ nav > a {
   background-color: #F4F3EF;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  /* justify-content: space-around; */
   align-items: center;
+  align-content: flex-start;
 }
 
 nav > a:hover {
@@ -36,6 +37,7 @@ nav > a:hover {
 .App main h1 {
   color: #283434;
   margin-bottom: 5vmin;
+  margin-top: 3vmin;
   font-weight: 300;
 }
 

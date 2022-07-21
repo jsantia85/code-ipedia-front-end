@@ -2,7 +2,7 @@
     size: auto;
 }
 a:hover{
-
+  color: #E5A6A6;
 }
 
 .dropbtn {
@@ -36,7 +36,8 @@ a:hover{
   }
   
   .dropdownContent a:hover {
-    background-color: #BAA3FE
+    background-color: #D7E4E9;
+    color: #E5A6A6;
   }
 
   .dropdown:hover .dropdownContent {
@@ -44,6 +45,6 @@ a:hover{
   }
   
   .dropdown:hover .dropbtn {
-    background-color: #BAA3FE;
-    color: #283434
+    background-color: #D7E4E9;
+    color: #E5A6A6;
   }

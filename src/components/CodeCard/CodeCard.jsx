@@ -14,15 +14,17 @@ const CodeCard = (props) => {
         <h3>{props.post.title}</h3>
       </div>
       <div className={styles.cardBody}>
-        <div className="code-card-body-code">
+        <div className={styles.cardCode}>
           <Editor 
           value={codeBlock}
           highlight={codeBlock => highlight(codeBlock, languages.js)}
           />
         </div>
-        <div className="card-text">
-          <p>Language: {props.post.category[0].category}</p>
-          <p>By: {props.post.author.name}</p>
+        <div className={styles.cardFooter}>
+          <div className="card-text">
+            <p>Category: {props.post.category[0].category}</p>
+            <p>By: {props.post.author.name}</p>
+          </div>
         </div>
       </div>
     </div>

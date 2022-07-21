@@ -7,32 +7,32 @@ import 'prismjs/themes/prism-tomorrow.css';
 
 function AddPost(props) {
 	const [code, setCode] = useState('')
-  const [formData, setFormData] = useState({
-    title: '',
-    category: '',
-    code: ''
-  })
-  const [validForm, setValidForm] = useState(false)
-  
-  const handleChange = evt => {
-    setFormData({ ...formData, [evt.target.name]: evt.target.value })
-  }
-
-  const formElement = useRef()
-
-  useEffect(() => {
-    formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
-  }, [formData])
-
-  const handleSubmit = evt => {
-    evt.preventDefault()
-	const form = {
-		title: formData.title,
-		code: formData.code,
-		category: {category: formData.category}
+	const [formData, setFormData] = useState({
+		title: '',
+		category: '',
+		code: ''
+		})
+	const [validForm, setValidForm] = useState(false)
+	
+	const handleChange = evt => {
+		setFormData({ ...formData, [evt.target.name]: evt.target.value })
 	}
-    props.handleAddPost(form)
-  }
+
+	const formElement = useRef()
+
+	useEffect(() => {
+		formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
+	}, [formData])
+
+	const handleSubmit = evt => {
+		evt.preventDefault()
+		const form = {
+			title: formData.title,
+			code: formData.code,
+			category: {category: formData.category}
+		}
+		props.handleAddPost(form)
+	}
   
 	return (
 		<>
@@ -105,7 +105,7 @@ function AddPost(props) {
 					<button
 						type="submit"
 						className="btn btn-primary btn-fluid"
-            disabled={!validForm}
+           				disabled={!validForm}
 					>
 						Add Post
 					</button>

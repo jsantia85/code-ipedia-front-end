@@ -1,7 +1,7 @@
-/* .main {
-  display: flex;
-  justify-content: center;
-} */
+.main {
+  block-size: 100%;
+  inline-size: 100%;
+}
 
 .container {
   display: flex;
@@ -21,9 +21,14 @@
   width: 300px;
   background-color: #283434;
   border-radius: 10px;
-  color: whitesmoke;
+  color: #edeae1;
   padding: 10px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  position: relative;
+}
+.card:hover{
+  background-color: #edeae1;
+  color:#283434
 }
 
 .card > img {
@@ -38,14 +43,17 @@
 }
 
 .cardTitle {
-  font-size: 24px;
+  /* font-size: 24px; */
+  /* text-align: center; */
   margin: 0 10px;
 }
 
 a:hover {
-  background-color: #D7E4E9;
+  /* background-color: #D7E4E9; */
 }
 
 /* h1 {
   margin: 15px 0px;
 } */
+
+
