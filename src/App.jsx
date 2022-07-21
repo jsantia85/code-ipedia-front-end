@@ -70,6 +70,7 @@ const App = () => {
     const updatedPost = await postService.update(updatedPostData)
     const newPostsArray = posts.map(post =>
       post._id === updatedPost._id ? updatedPost : post)
+
     setPosts(newPostsArray)
     navigate('/index')
   }
