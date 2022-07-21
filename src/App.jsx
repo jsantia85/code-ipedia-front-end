@@ -52,8 +52,10 @@ const App = () => {
   }
   
   const handleAddComment = async (newCommentData, id) => {
-    const newComment = await postService.createComment(newCommentData, id)
-    setComments([...comments, newComment])
+    const updatedPost = await postService.createComment(newCommentData, id)
+    const newPostArray = posts.map(post => post._id === updatedPost._id ? updatedPost : post)
+    setPosts(newPostArray)
+
   }
 
 
@@ -148,7 +150,7 @@ const App = () => {
                 <Navigate to="/login" />}/>
             <Route 
               path="/index/:postId"
-              element={<PostDetails profiles={profiles} user={user} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/>
+              element={<PostDetails profiles={profiles} user={user} posts={posts} handleAddComment={handleAddComment} handleUpdatePost={handleUpdatePost} handleDeletePost={handleDeletePost}/>}/>
             
           
       </Routes>

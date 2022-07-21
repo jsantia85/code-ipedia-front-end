@@ -13,25 +13,20 @@ function PostDetails (props) {
   const location = useLocation()
   const [comments, setComments] = useState([])
   const [post, setPost] = useState(location.state.post)
-  // console.log('THIS IS PROPS', props)
   const {postId} = useParams()
-  // console.log('post id', postId)
-  // const post = location.state.post
-  // console.log('THIS IS POST IN POSTDETAILS', post)
   
   
   
-  // useEffect(()=> {
-  //   setComments([location.state.post.comments])
-  // }, [location.state.post])
-  // console.log('******************', comments)
-  // console.log('this is commentsToPost', commentsToPost)
-  // console.log(commentsToPost[0]?.comments)
+  
+  useEffect(()=> {
+    setPost(props.posts.filter(post => post._id === location.state.post._id)[0])
+  }, [props.posts])
+  
   return (
     <>
     <h1>Post Details</h1>
     
-        {/* {props.user?.profile === post.author?._id && */}
+        {props.user?.profile === post.author?._id &&
           <div className="">
             <Link
               state={{post}}
@@ -46,8 +41,15 @@ function PostDetails (props) {
               </button>
             </NavLink>
           </div>
-        {/* } */}
+          }
         <section>
+        <CodeCard 
+          key={post._id}
+          post={post}
+          title={post.title}
+          author={post.author.name}
+          user={props.user}
+          />
             <div className="add-comment">
           <h5>Say Something Nice.</h5>
           <AddComment

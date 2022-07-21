@@ -21,7 +21,6 @@ function AddComment(props) {
       comments: formData.comments,
     }
     props.handleAddComment(form, props.postId)
-    props.setComments([...props.comments, formData])
     // console.log('message', props.comments)
   }
   console.log(props)
