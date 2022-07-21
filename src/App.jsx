@@ -22,7 +22,6 @@ import { PostDetails}   from './pages/PostDetails/PostDetails'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [posts, setPosts] = useState([])
-  const[comments, setComments] = useState([])
   const navigate = useNavigate()
   const [profiles, setProfiles] = useState([])
 
