@@ -3,8 +3,9 @@ import { useState, useRef, useEffect } from 'react'
 import './AddComments.css'
 import * as postService from '../../services/postService'
 // import { CommentsList } from '../CommentsList/CommentsList'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // import styles from "./Index.module.css";
+// import { NavLink } from 'react-router-dom'
 
 function AddComment(props) {
   console.log(props.user)
@@ -54,14 +55,15 @@ function AddComment(props) {
         >
       </textarea>
       </div>
-      
+      <Link to='/index/:postId'>
         <button
         type="submit"
 	      className="btn btn-primary btn-fluid"
         onClick={handleSubmit}
         disabled={!validForm}> 
         Add Comment
-		    </button>
+  </button>
+      </Link>
   </form>
   </>
   )

@@ -1,10 +1,10 @@
 .main {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
 }
 
 .container {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
@@ -17,9 +17,9 @@
 }
 
 .card {
-  display: flex;
+  /* display: flex; */
   width: 300px;
-  background-color: #283434;
+  /* background-color: #283434; */
   border-radius: 10px;
   color: whitesmoke;
   padding: 10px;
@@ -31,8 +31,12 @@
 }
 
 .cardBody {
-  display: flex;
+  /* display: flex; */
+  background-color: #ffffff;
+  color: #283434;
   justify-content: center;
+  padding: 5px;
+  text-align: center;
   align-items: center;
 }
 
@@ -44,3 +48,4 @@
 a:hover {
   background-color: #D7E4E9;
 }
+

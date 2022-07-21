@@ -1,4 +1,4 @@
-.landing {
+.landingSection {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
@@ -21,12 +21,16 @@ img {
   margin: 5% 0;
 }
 
-section{
+.landing{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #283434;
+  /* border: 2px solid #283434; */
+  border-radius: 10px;
+  background-color: #F4F3EF;
+  padding: 5%;
 }
 
 

@@ -20,6 +20,7 @@ import DisplayCodes from './pages/CodeList/DisplayCodes'
 import * as profileService from './services/profileService'
 import { PostDetails}   from './pages/PostDetails/PostDetails'
 import { CommentsList } from './components/CommentsList/CommentsList'
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [posts, setPosts] = useState([])
