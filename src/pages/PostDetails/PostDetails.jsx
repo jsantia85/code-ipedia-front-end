@@ -26,13 +26,13 @@ function PostDetails (props) {
     <>
     <h1>Post Details</h1>
     
-    <CodeCard 
+    {/* <CodeCard 
       key={post._id}
       post={post}
       title={post.title}
       author={post.author.name}
       user={props.user}
-      />
+      /> */}
         {props.user?.profile === post.author?._id &&
           <div className="">
             <Link

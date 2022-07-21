@@ -5,7 +5,8 @@ function CommentsList(props){
       {props.comments.map(comment => 
         <div key={comment._id}>
         <p>
-        {comment.comments}</p>
+        {comment.comments}
+        </p>
         </div>
       )}
     
