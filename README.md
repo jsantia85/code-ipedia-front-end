@@ -25,7 +25,7 @@ The following is the link to the [app](https://code-ipedia.netlify.app/) and the
 - ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 - ![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white)
 
-## Credits:
+## Contributors:
 - [Kailana: Scrum Manager](https://github.com/kailanajt)
 - [Minji: Database Manager](https://github.com/minjijeong2000)
 - [Nick: CSO (Cheif Style Officer) and Code Editor Researcher](https://github.com/LargeWater)
