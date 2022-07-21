@@ -43,3 +43,16 @@ nav > a {
 .m-left {
   margin-left: 10px;
 }
+
+.card:hover{
+  animation-name: scale;
+  animation-duration: 10s;
+}
+@keyframes scale {
+  0% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

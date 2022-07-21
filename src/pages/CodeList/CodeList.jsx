@@ -20,8 +20,8 @@ const CodeList = (props) => {
           ))}
         </select>
       <h4>Now viewing {category}</h4>
-        <div className="cardCode">
-          <section>
+        <div className={styles.catCodeSection}>
+          <section className={styles.categoryCode}>
             <DisplayCodes category={category} posts={props.posts}/>
           </section>
         </div>
