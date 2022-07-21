@@ -14,3 +14,22 @@
 .inputContainer {
   margin-bottom: 1rem;
 }
+
+.loginBtn{
+  color: #283434;
+  background-color: #E5A6A6;
+  border-radius: 10px;
+}
+
+.loginBtn:hover{
+  background-color: #D7E4E9;
+}
+
+.cancelBtn{
+  border-radius: 10px;
+  background-color: #E5A6A6;
+}
+
+.cancelBtn:hover{
+  background-color: #D7E4E9;
+}

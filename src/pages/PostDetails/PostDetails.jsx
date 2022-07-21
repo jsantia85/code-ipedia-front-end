@@ -1,3 +1,4 @@
+import styles from './PostDetails.module.css'
 import CodeCard from "../../components/CodeCard/CodeCard"
 import {useLocation, useParams} from 'react-router-dom'
 import AddComment from "../../components/AddComments/AddComments"
@@ -26,17 +27,18 @@ function PostDetails (props) {
           author={post.author.name}
           user={props.user}
         />
+        <br />
         {props.user?.profile === post.author?._id &&
           <div>
             <Link
               state={{post}}
               to="/edit"
-              className='btn btn-sm btn-primary'
+              className={styles.editBtn}
             >
               Edit
             </Link>
             <NavLink to="/index">
-              <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePost(post._id)}>
+              <button className={styles.deleteBtn} onClick={() => props.handleDeletePost(post._id)}>
                 Delete
               </button>
             </NavLink>

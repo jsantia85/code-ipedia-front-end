@@ -1,3 +1,5 @@
+import styles from './CodeList.module.css'
+
 import Code from './Code'
 
 const DisplayCodes = (props) => {
@@ -11,7 +13,7 @@ const DisplayCodes = (props) => {
     })
 
   return (
-    <div className="code-list">
+    <div className={styles.codeList}>
       {selectedCodes}
     </div>
   )
