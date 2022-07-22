@@ -35,7 +35,7 @@ function AddComment(props) {
 
   return (
     <>
-    <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
+    <form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className={styles.commentForm}>
       <div>
       <textarea 
         type="text"
@@ -49,7 +49,7 @@ function AddComment(props) {
       </div>
         <button
         type="submit"
-	      className="btn btn-primary btn-fluid"
+	      className={styles.commentBtn}
         onClick={handleSubmit}
         disabled={!validForm}> 
         Add Comment

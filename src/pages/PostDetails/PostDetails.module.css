@@ -19,6 +19,7 @@ h3{
 }
 
 
+
 #add-comment {
   border: 3px solid black;
   margin: 40px;
@@ -53,4 +54,12 @@ h3{
   color: #283434;
 }
 
+.commentDiv{
+  justify-content: center;
+  align-items: center;
+}
 
+form{
+  justify-content: center;
+  align-items: center;
+}

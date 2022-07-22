@@ -16,9 +16,14 @@
   max-width: 1600px;
 }
 
-.text {
+.text:visited, .text:link {
   text-decoration: none;
   /* background-color: #283434; */
+  color: #E5A6A6;
+}
+
+.text:hover{
+  color: #283434;
 }
 
 .codeCard {
