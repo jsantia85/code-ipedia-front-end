@@ -7,7 +7,32 @@ textarea {
   box-shadow: 1px 1px 1px #999;
 }
 
+body{
+  text-align: center;
+}
+
 form{
   width: auto;
   height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentBtn{
+  background-color: #E5A6A6;
+  border: none;
+  border-radius: 10px; 
+  justify-content: center;
+  padding: 2% 12%;
+  align-items: center;
+}
+
+.commentBtn:hover{
+  background-color: #283434;
+  color: antiquewhite;
+}
+
+.commentForm{
+  justify-content: center;
+  align-items: center;
 }

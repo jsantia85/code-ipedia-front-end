@@ -45,7 +45,7 @@ function PostDetails (props) {
           </div>
         }
       <section>
-        <div className="add-comment">
+        <div className={styles.commentDiv}>
           <h5>Say Something Nice.</h5>
           <AddComment
             key={post._id}
