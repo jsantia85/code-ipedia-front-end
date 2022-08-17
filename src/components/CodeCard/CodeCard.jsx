@@ -10,7 +10,7 @@ const CodeCard = (props) => {
   const codeBlock = props.post.code
   return(
     <div className="card">
-      <div className="card-header">
+      <div className={styles.cardHeader}>
         <h3>{props.post.title}</h3>
       </div>
       <div className={styles.cardBody}>
